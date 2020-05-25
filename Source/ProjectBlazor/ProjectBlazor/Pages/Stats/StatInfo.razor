@@ -1,0 +1,45 @@
+﻿<h3>StatInfo</h3>
+
+<table>
+    <tr>
+        <td>Attack</td>
+    </tr>
+    <tr>
+        <td>@Stats.Attack</td>
+    </tr>
+
+    <tr>
+        <td>Defense</td>
+    </tr>
+    <tr>
+        <td>@Stats.Defense</td>
+    </tr>
+
+    <tr>
+        <td>Magic Attack</td>
+    </tr>
+    <tr>
+        <td>@Stats.MagicAttack</td>
+    </tr>
+
+    <tr>
+        <td>Magic Defense</td>
+    </tr>
+    <tr>
+        <td>@Stats.MagicDefense</td>
+    </tr>
+
+    <tr>
+        <td>Speed</td>
+    </tr>
+    <tr>
+        <td>@Stats.Speed</td>
+    </tr>
+</table>
+
+@code {
+    [Parameter]
+    public ProjectBlazor.Data.Game.Stats.PbStats Stats { get; set; }
+
+}
+

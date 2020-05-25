@@ -1,0 +1,18 @@
+﻿@page "/"
+
+@using ProjectBlazor.Data.Game
+@inject ProjectBlazor.Data.Game.General.PbGame ProjectBlazorGame
+
+<h1>Project Blazor!</h1>
+
+<ProjectBlazor.Pages.Stats.PlayerInfo Player="ProjectBlazorGame.Player" />
+
+
+@code {
+    //ProjectBlazor.Data.Game.General.PbGame ProjectBlazorGame;
+
+    protected override async Task OnInitializedAsync()
+    {
+        //ProjectBlazorGame = new Data.Game.General.PbGame();
+    }
+}
