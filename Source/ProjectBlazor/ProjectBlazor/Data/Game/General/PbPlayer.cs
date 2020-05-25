@@ -20,5 +20,15 @@ namespace ProjectBlazor.Data.Game.General
 		{
 
 		}
+
+		public void LevelUp()
+		{
+			Stats.Hp += 3;
+			Stats.Attack += 1;
+			Stats.Defense += 1;
+			Stats.MagicAttack += 1;
+			Stats.MagicDefense += 1;
+			Stats.Speed += 1;
+		}
 	}
 }
