@@ -12,6 +12,11 @@
                 Level Up
             </button>
         </td>
+        <td>
+            <button class="btn btn-primary" @onclick="ResetBattle">
+                Reset Battle
+            </button>
+        </td>
     </tr>
 </table>
 
@@ -31,5 +36,10 @@
     private void LevelUp()
     {
         ProjectBlazorGame.Player.LevelUp();
+    }
+
+    private void ResetBattle()
+    {
+        ProjectBlazorGame.Battle.ResetBattle();
     }
 }

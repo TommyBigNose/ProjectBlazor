@@ -1,4 +1,5 @@
-﻿using ProjectBlazor.Data.Game.Equipment;
+﻿using ProjectBlazor.Data.Game.Battle;
+using ProjectBlazor.Data.Game.Equipment;
 using ProjectBlazor.Data.Game.Stats;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,13 @@ namespace ProjectBlazor.Data.Game.General
 	{
 		public PbPlayer Player { get; set; }
 		public List<PbEquipment> Equipment { get; set; }
+		public PbBattle Battle { get; set; }
 
 		public PbGame()
 		{
 			Equipment = InitEquipment();
 			Player = InitPlayer();
-
+			Battle = InitBattle();
 		}
 
 		/// <summary>
@@ -73,7 +75,26 @@ namespace ProjectBlazor.Data.Game.General
 			return player;
 		}
 
+		private PbEnemy GenerateEnemy(int level)
+		{
+			PbEnemy enemy = new PbEnemy()
+			{
+				Level = level,
+				Credits = 10 * level,
+				Exp = 10 * level,
+				Stats = new PbStats() { Hp = 10 + (3 * level), Attack = 1 + (level), Defense = 1 + (level), MagicAttack = 1 + (level), MagicDefense = 1 + (level), Speed = 1 + (level) }
+			};
 
+			return enemy;
+		}
+
+		private PbBattle InitBattle()
+		{
+			PbEnemy enemy = GenerateEnemy(Player.Level);
+			PbBattle battle = new PbBattle(Player, enemy);
+
+			return battle;
+		}
 
 	}
 }
