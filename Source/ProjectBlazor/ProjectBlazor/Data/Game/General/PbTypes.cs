@@ -12,5 +12,12 @@
 			LIGHT,
 			DARK
 		};
+
+		public enum EQUIPMENT_TYPE
+		{
+			WEAPON,
+			ARMOR,
+			BARRIER,
+		};
 	}
 }
