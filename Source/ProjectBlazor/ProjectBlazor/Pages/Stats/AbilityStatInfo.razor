@@ -1,0 +1,41 @@
+﻿<h3>AbilityStatInfo</h3>
+<div>
+    <table class="table table-bordered">
+        <tr>
+            <td>Element</td>
+            <td>@Enum.GetName(typeof(ProjectBlazor.Data.Game.General.PbTypes.ELEMENT), Stats.Element)</td>
+        </tr>
+
+        <tr>
+            <td>Attack</td>
+            <td>@Stats.AttackRatio</td>
+        </tr>
+
+        <tr>
+            <td>Defense</td>
+            <td>@Stats.DefenseRatio</td>
+        </tr>
+
+        <tr>
+            <td>Magic Attack</td>
+            <td>@Stats.MagicAttackRatio</td>
+        </tr>
+
+        <tr>
+            <td>Magic Defense</td>
+            <td>@Stats.MagicDefenseRatio</td>
+        </tr>
+
+        <tr>
+            <td>Speed</td>
+            <td>@Stats.SpeedRatio</td>
+        </tr>
+    </table>
+</div>
+
+@code {
+    [Parameter]
+    public ProjectBlazor.Data.Game.Stats.PbAbilityStats Stats { get; set; }
+
+}
+

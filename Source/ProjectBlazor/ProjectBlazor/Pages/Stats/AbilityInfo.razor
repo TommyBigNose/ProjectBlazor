@@ -1,0 +1,23 @@
+﻿<h3>AbilityInfo</h3>
+
+<div>
+    <table class="table table-bordered">
+        <tr>
+            <td>Name</td>
+            <td>@Ability.Name</td>
+        </tr>
+
+        <tr>
+            <td>Description</td>
+            <td>@Ability.Description</td>
+        </tr>
+    </table>
+
+    <ProjectBlazor.Pages.Stats.AbilityStatInfo Stats="Ability.Stats" />
+</div>
+
+@code {
+    [Parameter]
+    public ProjectBlazor.Data.Game.Ability.PbAbility Ability { get; set; }
+
+}

@@ -1,4 +1,5 @@
-﻿using ProjectBlazor.Data.Game.Equipment;
+﻿using ProjectBlazor.Data.Game.Ability;
+using ProjectBlazor.Data.Game.Equipment;
 using ProjectBlazor.Data.Game.Stats;
 using System.Collections.Generic;
 
@@ -12,6 +13,7 @@ namespace ProjectBlazor.Data.Game.General
 		public int Exp { get; set; }
 		public int Credits { get; set; }
 		public PbStats Stats { get; set; }
+		public List<PbAbility> Abilities { get; set; }
 		public List<PbEquipment> EquipmentUnlocked { get; set; }
 		public PbEquipment Weapon { get; set; }
 		public PbEquipment Armor { get; set; }

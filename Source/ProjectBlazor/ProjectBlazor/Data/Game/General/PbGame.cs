@@ -1,8 +1,10 @@
-﻿using ProjectBlazor.Data.Game.Battle;
+﻿using ProjectBlazor.Data.Game.Ability;
+using ProjectBlazor.Data.Game.Battle;
 using ProjectBlazor.Data.Game.Equipment;
 using ProjectBlazor.Data.Game.Stats;
 using System.Collections.Generic;
 using System.Linq;
+using static ProjectBlazor.Data.Game.General.PbTypes;
 
 namespace ProjectBlazor.Data.Game.General
 {
@@ -10,11 +12,13 @@ namespace ProjectBlazor.Data.Game.General
 	{
 		public PbPlayer Player { get; set; }
 		public List<PbEquipment> Equipment { get; set; }
+		public List<PbAbility> Abilities { get; set; }
 		public PbBattle Battle { get; set; }
 
 		public PbGame()
 		{
 			Equipment = InitEquipment();
+			Abilities = InitAbilities();
 			Player = InitPlayer();
 			Battle = InitBattle();
 		}
@@ -32,25 +36,44 @@ namespace ProjectBlazor.Data.Game.General
 					Name = "Saber",
 					Description = "A simple, mass produced, energy blade given out to new recruits",
 					EquipmentType = PbTypes.EQUIPMENT_TYPE.WEAPON,
-					Stats = new PbStats() { Hp = 0, Attack = 1, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0 }
+					Stats = new PbStats() { Hp = 0, Attack = 1, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
 				},
 				new PbEquipment
 				{
 					Name = "Armor",
 					Description = "A simple, mass produced, armor given out to new recruits",
 					EquipmentType = PbTypes.EQUIPMENT_TYPE.ARMOR,
-					Stats = new PbStats() { Hp = 0, Attack = 0, Defense = 1, MagicAttack = 0, MagicDefense = 0, Speed = 0 }
+					Stats = new PbStats() { Hp = 0, Attack = 0, Defense = 1, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0  }
 				},
 				new PbEquipment
 				{
 					Name = "Barrier",
 					Description = "A simple, mass produced, barrier given out to new recruits",
 					EquipmentType = PbTypes.EQUIPMENT_TYPE.BARRIER,
-					Stats = new PbStats() { Hp = 0, Attack = 1, Defense = 0, MagicAttack = 0, MagicDefense = 1, Speed = 0 }
+					Stats = new PbStats() { Hp = 0, Attack = 1, Defense = 0, MagicAttack = 0, MagicDefense = 1, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0  }
 				}
 			};
 
 			return equipment;
+		}
+
+		/// <summary>
+		/// This will eventually initialize/load from a source
+		/// </summary>
+		/// <returns></returns>
+		private List<PbAbility> InitAbilities()
+		{
+			List<PbAbility> abilities = new List<PbAbility>
+			{
+				new PbAbility
+				{
+					Name = "Standard Attack",
+					Description = "Use your weapon as defined by its instruction manual.",
+					Stats = new PbAbilityStats() { Element = ELEMENT.NONE, AttackRatio = 1, DefenseRatio = 0, MagicAttackRatio = 0, MagicDefenseRatio = 0, SpeedRatio = 1 }
+				}
+			};
+
+			return abilities;
 		}
 
 		/// <summary>
@@ -65,8 +88,9 @@ namespace ProjectBlazor.Data.Game.General
 				Credits = 100,
 				Exp = 0,
 				LevelPoints = 5,
-				Stats = new PbStats() { Hp = 10, Attack = 1, Defense = 1, MagicAttack = 1, MagicDefense = 1, Speed = 1 },
+				Stats = new PbStats() { Hp = 10, Attack = 1, Defense = 1, MagicAttack = 1, MagicDefense = 1, Speed = 1, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 },
 				EquipmentUnlocked = Equipment,
+				Abilities = Abilities,
 				Weapon = Equipment.First(x => x.EquipmentType == PbTypes.EQUIPMENT_TYPE.WEAPON),
 				Armor = Equipment.First(x => x.EquipmentType == PbTypes.EQUIPMENT_TYPE.ARMOR),
 				Barrier = Equipment.First(x => x.EquipmentType == PbTypes.EQUIPMENT_TYPE.BARRIER)
@@ -82,7 +106,7 @@ namespace ProjectBlazor.Data.Game.General
 				Level = level,
 				Credits = 10 * level,
 				Exp = 10 * level,
-				Stats = new PbStats() { Hp = 10 + (3 * level), Attack = 1 + (level), Defense = 1 + (level), MagicAttack = 1 + (level), MagicDefense = 1 + (level), Speed = 1 + (level) }
+				Stats = new PbStats() { Hp = 10 + (3 * level), Attack = 1 + (level), Defense = 1 + (level), MagicAttack = 1 + (level), MagicDefense = 1 + (level), Speed = 1 + (level), ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
 			};
 
 			return enemy;
