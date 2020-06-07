@@ -69,7 +69,25 @@ namespace ProjectBlazor.Data.Game.General
 				{
 					Name = "Standard Attack",
 					Description = "Use your weapon as defined by its instruction manual.",
-					Stats = new PbAbilityStats() { Element = ELEMENT.NONE, AttackRatio = 1, DefenseRatio = 0, MagicAttackRatio = 0, MagicDefenseRatio = 0, SpeedRatio = 1 }
+					Stats = new PbAbilityStats() { Element = ELEMENT.NONE, AttackRatio = 1, DefenseRatio = 1, MagicAttackRatio = 0, MagicDefenseRatio = 1, SpeedRatio = 1 }
+				},
+				new PbAbility
+				{
+					Name = "Flamethrower Palm",
+					Description = "No equipment required, throw flames everywhere.",
+					Stats = new PbAbilityStats() { Element = ELEMENT.FIRE, AttackRatio = 0, DefenseRatio = 1, MagicAttackRatio = 1.25, MagicDefenseRatio = 1, SpeedRatio = 0.8 }
+				},
+				new PbAbility
+				{
+					Name = "Glacial Charge",
+					Description = "Become one with a glacier and charge the enemy...",
+					Stats = new PbAbilityStats() { Element = ELEMENT.ICE, AttackRatio = 1.25, DefenseRatio = 1.25, MagicAttackRatio = 1.25, MagicDefenseRatio = 1.25, SpeedRatio = 0.25 }
+				},
+				new PbAbility
+				{
+					Name = "Lightning Dash",
+					Description = "Harness the power and speed of lightning to attack quickly.",
+					Stats = new PbAbilityStats() { Element = ELEMENT.LIGHTNING, AttackRatio = 0.35, DefenseRatio = 1, MagicAttackRatio = 0, MagicDefenseRatio = 1, SpeedRatio = 3 }
 				}
 			};
 
@@ -106,6 +124,7 @@ namespace ProjectBlazor.Data.Game.General
 				Level = level,
 				Credits = 10 * level,
 				Exp = 10 * level,
+				Abilities = Abilities,
 				Stats = new PbStats() { Hp = 10 + (3 * level), Attack = 1 + (level), Defense = 1 + (level), MagicAttack = 1 + (level), MagicDefense = 1 + (level), Speed = 1 + (level), ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
 			};
 
@@ -115,6 +134,10 @@ namespace ProjectBlazor.Data.Game.General
 		private PbBattle InitBattle()
 		{
 			PbEnemy enemy = GenerateEnemy(Player.Level);
+
+			Player.ResetHp();
+			enemy.ResetHp();
+
 			PbBattle battle = new PbBattle(Player, enemy);
 
 			return battle;

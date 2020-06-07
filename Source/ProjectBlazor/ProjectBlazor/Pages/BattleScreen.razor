@@ -1,0 +1,47 @@
+﻿@page "/BattleScreen"
+
+@using ProjectBlazor.Data.Game
+@inject ProjectBlazor.Data.Game.General.PbGame ProjectBlazorGame
+
+<h3>BattleScreen</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <td>
+            Player
+        </td>
+        <td>
+            Enemy
+        </td>
+    </tr>
+    <tr>
+        <td>
+            HP |  @ProjectBlazorGame.Battle.Player.GetHpCurrent() / @ProjectBlazorGame.Battle.Player.GetHpTotal()
+        </td>
+        <td>
+            HP |  @ProjectBlazorGame.Battle.Enemy.GetHpCurrent() / @ProjectBlazorGame.Battle.Enemy.GetHpTotal()
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+</table>
+
+@code {
+    //[Parameter]
+    //public ProjectBlazor.Data.Game.Battle.PbBattle Battle { get; set; }
+    //protected override async Task OnInitializedAsync()
+    //{
+    //ProjectBlazorGame.Battle = ProjectBlazorGame.Battle;
+
+    //}
+}

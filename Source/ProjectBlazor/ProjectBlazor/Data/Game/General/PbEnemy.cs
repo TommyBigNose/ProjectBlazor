@@ -1,4 +1,6 @@
-﻿using ProjectBlazor.Data.Game.Stats;
+﻿using ProjectBlazor.Data.Game.Ability;
+using ProjectBlazor.Data.Game.Stats;
+using System.Collections.Generic;
 
 namespace ProjectBlazor.Data.Game.General
 {
@@ -9,6 +11,7 @@ namespace ProjectBlazor.Data.Game.General
 		public int Exp { get; set; }
 		public int Credits { get; set; }
 		public PbStats Stats { get; set; }
+		public List<PbAbility> Abilities { get; set; }
 
 		public PbEnemy()
 		{
