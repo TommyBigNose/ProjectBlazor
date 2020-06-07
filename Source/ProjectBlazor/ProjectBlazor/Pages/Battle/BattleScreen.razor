@@ -1,4 +1,4 @@
-﻿@page "/BattleScreen"
+﻿@page "/Battle/BattleScreen"
 
 @using ProjectBlazor.Data.Game
 @inject ProjectBlazor.Data.Game.General.PbGame ProjectBlazorGame
@@ -24,6 +24,7 @@
     </tr>
     <tr>
         <td>
+            <ProjectBlazor.Pages.Battle.AbilityButtons Abilities="ProjectBlazorGame.Battle.Player.Abilities" UseAbilityFunction="UseAbility"/>
         </td>
         <td>
         </td>
@@ -37,11 +38,8 @@
 </table>
 
 @code {
-    //[Parameter]
-    //public ProjectBlazor.Data.Game.Battle.PbBattle Battle { get; set; }
-    //protected override async Task OnInitializedAsync()
-    //{
-    //ProjectBlazorGame.Battle = ProjectBlazorGame.Battle;
-
-    //}
+    private void UseAbility(string abilityName)
+    {
+        Console.WriteLine(abilityName);
+    }
 }

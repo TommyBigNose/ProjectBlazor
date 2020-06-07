@@ -1,0 +1,19 @@
+﻿<h3>AbilityButtons</h3>
+
+<div>
+    @foreach (ProjectBlazor.Data.Game.Ability.PbAbility ability in Abilities)
+    {
+        <button class="btn btn-primary" @onclick="@(e => UseAbilityFunction.InvokeAsync(ability.Name))">
+            @ability.Name
+        </button>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public List<ProjectBlazor.Data.Game.Ability.PbAbility> Abilities { get; set; }
+
+    [Parameter]
+    public EventCallback<string> UseAbilityFunction { get; set; }
+
+}
