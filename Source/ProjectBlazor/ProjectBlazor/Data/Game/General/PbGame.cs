@@ -69,25 +69,37 @@ namespace ProjectBlazor.Data.Game.General
 				{
 					Name = "Standard Attack",
 					Description = "Use your weapon as defined by its instruction manual.",
-					Stats = new PbAbilityStats() { Element = ELEMENT.NONE, AttackRatio = 1, DefenseRatio = 1, MagicAttackRatio = 0, MagicDefenseRatio = 1, SpeedRatio = 1 }
+					Element = ELEMENT.NONE,
+					OutputStatAttribute = STAT_ATTRIBUTE.ATTACK,
+					AbilityActionType = ABILITY_ACTION_TYPE.DAMAGE,
+					Stats = new PbAbilityStats() { AttackRatio = 1, DefenseRatio = 1, MagicAttackRatio = 0, MagicDefenseRatio = 1, SpeedRatio = 1 }
 				},
 				new PbAbility
 				{
 					Name = "Flamethrower Palm",
 					Description = "No equipment required, throw flames everywhere.",
-					Stats = new PbAbilityStats() { Element = ELEMENT.FIRE, AttackRatio = 0, DefenseRatio = 1, MagicAttackRatio = 1.25, MagicDefenseRatio = 1, SpeedRatio = 0.8 }
+					Element = ELEMENT.FIRE,
+					OutputStatAttribute = STAT_ATTRIBUTE.ATTACK_MAGIC,
+					AbilityActionType = ABILITY_ACTION_TYPE.DAMAGE,
+					Stats = new PbAbilityStats() { AttackRatio = 0, DefenseRatio = 1, MagicAttackRatio = 1.25, MagicDefenseRatio = 1, SpeedRatio = 0.8 }
 				},
 				new PbAbility
 				{
 					Name = "Glacial Charge",
 					Description = "Become one with a glacier and charge the enemy...",
-					Stats = new PbAbilityStats() { Element = ELEMENT.ICE, AttackRatio = 1.25, DefenseRatio = 1.25, MagicAttackRatio = 1.25, MagicDefenseRatio = 1.25, SpeedRatio = 0.25 }
+					Element = ELEMENT.ICE,
+					OutputStatAttribute = STAT_ATTRIBUTE.ATTACK,
+					AbilityActionType = ABILITY_ACTION_TYPE.DAMAGE,
+					Stats = new PbAbilityStats() { AttackRatio = 1.25, DefenseRatio = 1.25, MagicAttackRatio = 1.25, MagicDefenseRatio = 1.25, SpeedRatio = 0.25 }
 				},
 				new PbAbility
 				{
 					Name = "Lightning Dash",
 					Description = "Harness the power and speed of lightning to attack quickly.",
-					Stats = new PbAbilityStats() { Element = ELEMENT.LIGHTNING, AttackRatio = 0.35, DefenseRatio = 1, MagicAttackRatio = 0, MagicDefenseRatio = 1, SpeedRatio = 3 }
+					Element = ELEMENT.LIGHTNING,
+					OutputStatAttribute = STAT_ATTRIBUTE.ATTACK_MAGIC,
+					AbilityActionType = ABILITY_ACTION_TYPE.DAMAGE,
+					Stats = new PbAbilityStats() { AttackRatio = 0.30, DefenseRatio = 1, MagicAttackRatio = 0.30, MagicDefenseRatio = 1, SpeedRatio = 3 }
 				}
 			};
 

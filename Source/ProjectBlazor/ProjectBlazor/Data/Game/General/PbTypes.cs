@@ -19,5 +19,22 @@
 			ARMOR,
 			BARRIER,
 		};
+
+		public enum STAT_ATTRIBUTE
+		{
+			HP,
+			ATTACK,
+			DEFENSE,
+			ATTACK_MAGIC,
+			DEFENSE_MAGIC,
+			SPEED
+		}
+
+		public enum ABILITY_ACTION_TYPE
+		{
+			DAMAGE,
+			HEAL,
+			STATUS
+		}
 	}
 }

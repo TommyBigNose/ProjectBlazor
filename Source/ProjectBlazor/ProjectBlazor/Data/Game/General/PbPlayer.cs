@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace ProjectBlazor.Data.Game.General
 {
-	public class PbPlayer : IPbBattleStats
+	public class PbPlayer : IPbBattleStats//, IPbBattleReady
 	{
 		private int _hpCurrent;
 		public int Level { get; set; }

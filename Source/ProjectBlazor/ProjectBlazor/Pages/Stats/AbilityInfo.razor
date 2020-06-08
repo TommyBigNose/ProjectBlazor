@@ -11,6 +11,22 @@
             <td>Description</td>
             <td>@Ability.Description</td>
         </tr>
+
+        <tr>
+            <td>Element</td>
+            <td>@Enum.GetName(typeof(ProjectBlazor.Data.Game.General.PbTypes.ELEMENT), Ability.Element)</td>
+        </tr>
+
+        <tr>
+            <td>Output Stat Attribute</td>
+            <td>@Enum.GetName(typeof(ProjectBlazor.Data.Game.General.PbTypes.STAT_ATTRIBUTE), Ability.OutputStatAttribute)</td>
+        </tr>
+
+        <tr>
+            <td>Action Type</td>
+            <td>@Enum.GetName(typeof(ProjectBlazor.Data.Game.General.PbTypes.ABILITY_ACTION_TYPE), Ability.AbilityActionType)</td>
+        </tr>
+
     </table>
 
     <ProjectBlazor.Pages.Stats.AbilityStatInfo Stats="Ability.Stats" />
