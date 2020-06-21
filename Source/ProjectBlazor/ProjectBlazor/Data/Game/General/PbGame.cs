@@ -23,6 +23,11 @@ namespace ProjectBlazor.Data.Game.General
 			Battle = InitBattle();
 		}
 
+		public void ResetBattle()
+		{
+			Battle = InitBattle();
+		}
+
 		/// <summary>
 		/// This will eventually initialize/load from a source
 		/// </summary>
