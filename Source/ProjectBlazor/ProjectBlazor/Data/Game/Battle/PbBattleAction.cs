@@ -1,4 +1,5 @@
 ﻿using ProjectBlazor.Data.Game.Ability;
+using ProjectBlazor.Data.Game.General;
 using System;
 
 namespace ProjectBlazor.Data.Game.Battle
@@ -46,6 +47,14 @@ namespace ProjectBlazor.Data.Game.Battle
 			return output;
 		}
 
+		public int GetTargetSpeed()
+		{
+			int speed = 0;
+			speed += (int)Math.Ceiling(Target.GetSpeedTotal() * TargetAbilityUsed.Stats.SpeedRatio);
+
+			return speed;
+		}
+
 		public void RunAction()
 		{
 			if (SourceAbilityUsed.AbilityActionType == General.PbTypes.ABILITY_ACTION_TYPE.DAMAGE)
@@ -53,12 +62,15 @@ namespace ProjectBlazor.Data.Game.Battle
 				if (SourceAbilityUsed.OutputStatAttribute == General.PbTypes.STAT_ATTRIBUTE.ATTACK)
 				{
 					int totalDamage = Math.Max(GetSourceOutput() - GetTargetDefenseOutput(), 0);
+					if (IsCriticalHit()) totalDamage = (int)Math.Ceiling(totalDamage * PbConstants.Battle.CriticalHitDamageRatio);
+
 					Target.TakeDamage(totalDamage);
 				}
 
 				if (SourceAbilityUsed.OutputStatAttribute == General.PbTypes.STAT_ATTRIBUTE.ATTACK_MAGIC)
 				{
 					int totalDamage = Math.Max(GetSourceOutput() - GetTargetMagicDefenseOutput(), 0);
+					if (IsCriticalHit()) totalDamage = (int)Math.Ceiling(totalDamage * PbConstants.Battle.CriticalHitDamageRatio);
 
 					double damangeResistance = (1.00 - Target.GetAppropriateResistance(SourceAbilityUsed.Element));
 
@@ -68,6 +80,11 @@ namespace ProjectBlazor.Data.Game.Battle
 				}
 
 			}
+		}
+
+		public bool IsCriticalHit()
+		{
+			return GetSourceSpeed() >= ((int)GetTargetSpeed() * PbConstants.Battle.CriticalHitSpeedRatio);
 		}
 	}
 }

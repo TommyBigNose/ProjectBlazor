@@ -1,28 +1,28 @@
 ﻿<h3>EquipmentInfo</h3>
 
 <div>
-	<table class="table table-bordered">
-		<tr>
-			<td>Name</td>
-			<td>@Equipment.Name</td>
-		</tr>
+    <table class="table table-bordered">
+        <tr>
+            <td>Name</td>
+            <td>@Equipment.Name</td>
+        </tr>
 
-		<tr>
-			<td>Description</td>
-			<td>@Equipment.Description</td>
-		</tr>
+        <tr>
+            <td>Description</td>
+            <td>@Equipment.Description</td>
+        </tr>
 
-		<tr>
-			<td>Type</td>
-			<td>@Enum.GetName(typeof(ProjectBlazor.Data.Game.General.PbTypes.EQUIPMENT_TYPE), Equipment.EquipmentType)</td>
-		</tr>
-	</table>
+        <tr>
+            <td>Type</td>
+            <td>@Enum.GetName(typeof(ProjectBlazor.Data.Game.General.PbTypes.EQUIPMENT_TYPE), Equipment.EquipmentType)</td>
+        </tr>
+    </table>
 
-	<ProjectBlazor.Pages.Stats.StatInfo Stats="Equipment.Stats" />
+    <@ProjectBlazor.Pages.Stats.StatInfo Stats="@Equipment.Stats" />
 </div>
 
 @code {
-	[Parameter]
-	public ProjectBlazor.Data.Game.Equipment.PbEquipment Equipment { get; set; }
+    [Parameter]
+    public ProjectBlazor.Data.Game.Equipment.PbEquipment Equipment { get; set; }
 
 }
