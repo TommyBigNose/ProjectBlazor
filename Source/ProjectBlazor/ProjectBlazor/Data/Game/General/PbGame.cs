@@ -104,7 +104,7 @@ namespace ProjectBlazor.Data.Game.General
 					Element = ELEMENT.LIGHTNING,
 					OutputStatAttribute = STAT_ATTRIBUTE.ATTACK_MAGIC,
 					AbilityActionType = ABILITY_ACTION_TYPE.DAMAGE,
-					Stats = new PbAbilityStats() { AttackRatio = 0.30, DefenseRatio = 1, MagicAttackRatio = 0.30, MagicDefenseRatio = 1, SpeedRatio = 3 }
+					Stats = new PbAbilityStats() { AttackRatio = 0.33, DefenseRatio = 1, MagicAttackRatio = 0.33, MagicDefenseRatio = 1, SpeedRatio = 3 }
 				}
 			};
 

@@ -1,28 +1,28 @@
 ﻿<h3>PlayerInfo</h3>
 
 <div>
-	<table class="table table-bordered">
-		<tr>
-			<td>Level</td>
-			<td>@Player.Level</td>
-		</tr>
+    <table class="table table-bordered">
+        <tr>
+            <td>Level</td>
+            <td>@Player.Level</td>
+        </tr>
 
-		<tr>
-			<td>Exp</td>
-			<td>@Player.Exp</td>
-		</tr>
+        <tr>
+            <td>Exp</td>
+            <td>@Player.Exp</td>
+        </tr>
 
-		<tr>
-			<td>Credits</td>
-			<td>@Player.Credits</td>
-		</tr>
-	</table>
+        <tr>
+            <td>Credits</td>
+            <td>@Player.Credits</td>
+        </tr>
+    </table>
 
-	<ProjectBlazor.Pages.Stats.StatInfo Stats="Player.Stats" />
+    <ProjectBlazor.Pages.Stats.StatInfo Stats="@Player.Stats" />
 </div>
 
 @code {
-	[Parameter]
-	public ProjectBlazor.Data.Game.General.PbPlayer Player { get; set; }
+    [Parameter]
+    public ProjectBlazor.Data.Game.General.PbPlayer Player { get; set; }
 
 }

@@ -78,6 +78,15 @@ namespace ProjectBlazor.Data.Game.Battle
 
 					Target.TakeDamage(totalDamage);
 				}
+			}
+			else if (SourceAbilityUsed.AbilityActionType == General.PbTypes.ABILITY_ACTION_TYPE.HEAL)
+			{
+				int totalHeal = GetSourceOutput();
+
+				Source.TakeHeal(totalHeal);
+			}
+			else if (SourceAbilityUsed.AbilityActionType == General.PbTypes.ABILITY_ACTION_TYPE.STATUS)
+			{
 
 			}
 		}
