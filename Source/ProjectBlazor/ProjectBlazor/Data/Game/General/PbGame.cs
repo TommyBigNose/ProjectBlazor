@@ -28,6 +28,24 @@ namespace ProjectBlazor.Data.Game.General
 			Battle = InitBattle();
 		}
 
+		public void EquipItem(PbTypes.EQUIPMENT_TYPE equipmentType, string name)
+		{
+			PbEquipment itemToEquip = Equipment.Find(x => x.EquipmentType == equipmentType && x.Name.Equals(name, System.StringComparison.OrdinalIgnoreCase));
+
+			if (equipmentType == EQUIPMENT_TYPE.WEAPON)
+			{
+				Player.Weapon = itemToEquip;
+			}
+			else if (equipmentType == EQUIPMENT_TYPE.ARMOR)
+			{
+				Player.Armor = itemToEquip;
+			}
+			else if (equipmentType == EQUIPMENT_TYPE.BARRIER)
+			{
+				Player.Barrier = itemToEquip;
+			}
+		}
+
 		/// <summary>
 		/// This will eventually initialize/load from a source
 		/// </summary>
@@ -40,22 +58,57 @@ namespace ProjectBlazor.Data.Game.General
 				{
 					Name = "Saber",
 					Description = "A simple, mass produced, energy blade given out to new recruits",
+					Value = 10,
 					EquipmentType = PbTypes.EQUIPMENT_TYPE.WEAPON,
-					Stats = new PbStats() { Hp = 0, Attack = 1, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+					Stats = new PbStats() { Hp = 0, Attack = 2, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
 				},
 				new PbEquipment
 				{
-					Name = "Armor",
+					Name = "Blaster",
+					Description = "A simple, mass produced, energy handgun given out to new recruits",
+					Value = 10,
+					EquipmentType = PbTypes.EQUIPMENT_TYPE.WEAPON,
+					Stats = new PbStats() { Hp = 0, Attack = 1, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 1, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+				},
+				new PbEquipment
+				{
+					Name = "Cane",
+					Description = "A simple, mass produced, energy wand given out to new recruits",
+					Value = 10,
+					EquipmentType = PbTypes.EQUIPMENT_TYPE.WEAPON,
+					Stats = new PbStats() { Hp = 0, Attack = 0, Defense = 0, MagicAttack = 2, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+				},
+				new PbEquipment
+				{
+					Name = "Frame",
 					Description = "A simple, mass produced, armor given out to new recruits",
+					Value = 10,
 					EquipmentType = PbTypes.EQUIPMENT_TYPE.ARMOR,
 					Stats = new PbStats() { Hp = 0, Attack = 0, Defense = 1, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0  }
 				},
 				new PbEquipment
 				{
+					Name = "Armor",
+					Description = "A tough, mass produced, armor given out to new recruits",
+					Value = 20,
+					EquipmentType = PbTypes.EQUIPMENT_TYPE.ARMOR,
+					Stats = new PbStats() { Hp = 0, Attack = 0, Defense = 2, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0  }
+				},
+				new PbEquipment
+				{
 					Name = "Barrier",
 					Description = "A simple, mass produced, barrier given out to new recruits",
+					Value = 10,
 					EquipmentType = PbTypes.EQUIPMENT_TYPE.BARRIER,
-					Stats = new PbStats() { Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 1, Speed = 0, ResistFire = 5, ResistIce = 5, ResistLightning = 5, ResistEarth = 0, ResistLight = 0, ResistDark = 0  }
+					Stats = new PbStats() { Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 1, Speed = 0, ResistFire = 5, ResistIce = 5, ResistLightning = 5, ResistEarth = 5, ResistLight = 0, ResistDark = 0  }
+				},
+				new PbEquipment
+				{
+					Name = "Shield",
+					Description = "A tough, mass produced, barrier given out to new recruits",
+					Value = 20,
+					EquipmentType = PbTypes.EQUIPMENT_TYPE.BARRIER,
+					Stats = new PbStats() { Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 2, Speed = 0, ResistFire = 5, ResistIce = 5, ResistLightning = 5, ResistEarth = 5, ResistLight = 0, ResistDark = 0  }
 				}
 			};
 
