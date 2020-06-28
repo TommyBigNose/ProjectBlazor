@@ -1,0 +1,70 @@
+﻿<h3>PlayerStatInfo</h3>
+<div>
+    <table class="table table-bordered">
+        <tr>
+            <td>HP</td>
+            <td>@Player.GetHpTotal()</td>
+        </tr>
+
+        <tr>
+            <td>Attack</td>
+            <td>@Player.GetAttackTotal()</td>
+        </tr>
+
+        <tr>
+            <td>Defense</td>
+            <td>@Player.GetDefenseTotal()</td>
+        </tr>
+
+        <tr>
+            <td>Magic Attack</td>
+            <td>@Player.GetMagicAttackTotal()</td>
+        </tr>
+
+        <tr>
+            <td>Magic Defense</td>
+            <td>@Player.GetMagicDefenseTotal()</td>
+        </tr>
+
+        <tr>
+            <td>Speed</td>
+            <td>@Player.GetSpeedTotal()</td>
+        </tr>
+
+        <tr>
+            <td>Resist Fire</td>
+            <td>@Player.GetResistFireTotal()</td>
+        </tr>
+
+        <tr>
+            <td>Resist Ice</td>
+            <td>@Player.GetResistIceTotal()</td>
+        </tr>
+
+        <tr>
+            <td>Resist Lightning</td>
+            <td>@Player.GetResistLightningTotal()</td>
+        </tr>
+
+        <tr>
+            <td>Resist Earth</td>
+            <td>@Player.GetResistEarthTotal()</td>
+        </tr>
+
+        <tr>
+            <td>Resist Light</td>
+            <td>@Player.GetResistLightTotal()</td>
+        </tr>
+
+        <tr>
+            <td>Resist Dark</td>
+            <td>@Player.GetResistDarkTotal()</td>
+        </tr>
+    </table>
+</div>
+
+@code {
+    [Parameter]
+    public ProjectBlazor.Data.Game.General.PbPlayer Player { get; set; }
+
+}

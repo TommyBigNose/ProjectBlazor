@@ -1,41 +1,71 @@
 ﻿<h3>StatInfo</h3>
 <div>
-	<table class="table table-bordered">
-		<tr>
-			<td>HP</td>
-			<td>@Stats.Hp</td>
-		</tr>
+    <table class="table table-bordered">
+        <tr>
+            <td>HP</td>
+            <td>@Stats.Hp</td>
+        </tr>
 
-		<tr>
-			<td>Attack</td>
-			<td>@Stats.Attack</td>
-		</tr>
+        <tr>
+            <td>Attack</td>
+            <td>@Stats.Attack</td>
+        </tr>
 
-		<tr>
-			<td>Defense</td>
-			<td>@Stats.Defense</td>
-		</tr>
+        <tr>
+            <td>Defense</td>
+            <td>@Stats.Defense</td>
+        </tr>
 
-		<tr>
-			<td>Magic Attack</td>
-			<td>@Stats.MagicAttack</td>
-		</tr>
+        <tr>
+            <td>Magic Attack</td>
+            <td>@Stats.MagicAttack</td>
+        </tr>
 
-		<tr>
-			<td>Magic Defense</td>
-			<td>@Stats.MagicDefense</td>
-		</tr>
+        <tr>
+            <td>Magic Defense</td>
+            <td>@Stats.MagicDefense</td>
+        </tr>
 
-		<tr>
-			<td>Speed</td>
-			<td>@Stats.Speed</td>
-		</tr>
-	</table>
+        <tr>
+            <td>Speed</td>
+            <td>@Stats.Speed</td>
+        </tr>
+
+        <tr>
+            <td>Resist Fire</td>
+            <td>@Stats.ResistFire</td>
+        </tr>
+
+        <tr>
+            <td>Resist Ice</td>
+            <td>@Stats.ResistIce</td>
+        </tr>
+
+        <tr>
+            <td>Resist Lightning</td>
+            <td>@Stats.ResistLightning</td>
+        </tr>
+
+        <tr>
+            <td>Resist Earth</td>
+            <td>@Stats.ResistEarth</td>
+        </tr>
+
+        <tr>
+            <td>Resist Light</td>
+            <td>@Stats.ResistLight</td>
+        </tr>
+
+        <tr>
+            <td>Resist Dark</td>
+            <td>@Stats.ResistDark</td>
+        </tr>
+    </table>
 </div>
 
 @code {
-	[Parameter]
-	public ProjectBlazor.Data.Game.Stats.PbStats Stats { get; set; }
+    [Parameter]
+    public ProjectBlazor.Data.Game.Stats.PbStats Stats { get; set; }
 
 }
 

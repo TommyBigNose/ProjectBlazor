@@ -55,7 +55,7 @@ namespace ProjectBlazor.Data.Game.General
 					Name = "Barrier",
 					Description = "A simple, mass produced, barrier given out to new recruits",
 					EquipmentType = PbTypes.EQUIPMENT_TYPE.BARRIER,
-					Stats = new PbStats() { Hp = 0, Attack = 1, Defense = 0, MagicAttack = 0, MagicDefense = 1, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0  }
+					Stats = new PbStats() { Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 1, Speed = 0, ResistFire = 5, ResistIce = 5, ResistLightning = 5, ResistEarth = 0, ResistLight = 0, ResistDark = 0  }
 				}
 			};
 
