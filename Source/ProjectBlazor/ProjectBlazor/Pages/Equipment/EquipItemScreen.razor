@@ -1,0 +1,36 @@
+﻿@page "/Equipment/EquipItemScreen"
+
+@using ProjectBlazor.Data.Game
+@inject ProjectBlazor.Data.Game.General.PbGame ProjectBlazorGame
+
+<h3>EquipItemScreen</h3>
+
+@foreach (ProjectBlazor.Data.Game.Equipment.PbEquipment item in ProjectBlazorGame.Equipment)
+{
+    <table class="table table-bordered">
+        <tr>
+            <td>
+                <ProjectBlazor.Pages.Stats.EquipmentInfo Equipment="@item" EquipmentToCompare="@ProjectBlazorGame.GetPlayerEquippedItem(item.EquipmentType)" />
+                @*<ProjectBlazor.Pages.Stats.EquipmentInfo Equipment="@item" EquipmentToCompare="@ProjectBlazorGame.Player.Weapon" />*@
+            </td>
+            <td>
+            </td>
+            <td>
+                <button class="btn btn-primary" @onclick="@(e => EquipItem(item.EquipmentType, item.Name))">
+                    Equip
+                </button>
+            </td>
+        </tr>
+    </table>
+
+
+}
+
+
+@code {
+    private void EquipItem(ProjectBlazor.Data.Game.General.PbTypes.EQUIPMENT_TYPE equipmentType, string name)
+    {
+        Console.WriteLine(name);
+        ProjectBlazorGame.EquipItem(ProjectBlazor.Data.Game.General.PbTypes.EQUIPMENT_TYPE.WEAPON, name);
+    }
+}

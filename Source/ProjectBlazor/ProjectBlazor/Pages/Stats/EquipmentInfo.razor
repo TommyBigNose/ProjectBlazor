@@ -18,11 +18,21 @@
         </tr>
     </table>
 
-    <ProjectBlazor.Pages.Stats.StatInfo Stats="@Equipment.Stats" />
+    @if (EquipmentToCompare != null)
+    {
+        <ProjectBlazor.Pages.Stats.StatInfo Stats="@Equipment.Stats" StatsToCompare="@EquipmentToCompare.Stats" />
+    }
+    else
+    {
+        <ProjectBlazor.Pages.Stats.StatInfo Stats="@Equipment.Stats" />
+    }
+
 </div>
 
 @code {
     [Parameter]
     public ProjectBlazor.Data.Game.Equipment.PbEquipment Equipment { get; set; }
 
+    [Parameter]
+    public ProjectBlazor.Data.Game.Equipment.PbEquipment EquipmentToCompare { get; set; }
 }

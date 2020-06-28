@@ -2,6 +2,7 @@
 using ProjectBlazor.Data.Game.Battle;
 using ProjectBlazor.Data.Game.Equipment;
 using ProjectBlazor.Data.Game.Stats;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using static ProjectBlazor.Data.Game.General.PbTypes;
@@ -26,6 +27,30 @@ namespace ProjectBlazor.Data.Game.General
 		public void ResetBattle()
 		{
 			Battle = InitBattle();
+		}
+
+		public PbEquipment GetPlayerEquippedItem(PbTypes.EQUIPMENT_TYPE equipmentType)
+		{
+			PbEquipment equipment;
+
+			if (equipmentType == EQUIPMENT_TYPE.WEAPON)
+			{
+				equipment = Player.Weapon;
+			}
+			else if (equipmentType == EQUIPMENT_TYPE.ARMOR)
+			{
+				equipment = Player.Armor;
+			}
+			else if (equipmentType == EQUIPMENT_TYPE.BARRIER)
+			{
+				equipment = Player.Barrier;
+			}
+			else
+			{
+				throw new ArgumentException("No such equipment type on player");
+			}
+
+			return equipment;
 		}
 
 		public void EquipItem(PbTypes.EQUIPMENT_TYPE equipmentType, string name)
