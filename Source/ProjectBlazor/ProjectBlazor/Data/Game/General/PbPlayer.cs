@@ -16,6 +16,8 @@ namespace ProjectBlazor.Data.Game.General
 		public int Credits { get; set; }
 		public PbStats Stats { get; set; }
 		public List<PbAbility> Abilities { get; set; }
+		public PbRace Race { get; set; }
+		public PbClass Class { get; set; }
 		public List<PbEquipment> EquipmentUnlocked { get; set; }
 		public PbEquipment Weapon { get; set; }
 		public PbEquipment Armor { get; set; }
@@ -29,12 +31,12 @@ namespace ProjectBlazor.Data.Game.General
 		public void LevelUp()
 		{
 			Level++;
-			Stats.Hp += 3;
-			Stats.Attack += 1;
-			Stats.Defense += 1;
-			Stats.MagicAttack += 1;
-			Stats.MagicDefense += 1;
-			Stats.Speed += 1;
+			Stats.Hp += 3 + Race.Stats.Hp + Class.Stats.Hp;
+			Stats.Attack += 1 + Race.Stats.Attack + Class.Stats.Attack;
+			Stats.Defense += 1 + Race.Stats.Defense + Class.Stats.Defense;
+			Stats.MagicAttack += 1 + Race.Stats.MagicAttack + Class.Stats.MagicAttack;
+			Stats.MagicDefense += 1 + Race.Stats.MagicDefense + Class.Stats.MagicDefense;
+			Stats.Speed += 1 + Race.Stats.Speed + Class.Stats.Speed;
 		}
 
 		public void AddExp(int exp)

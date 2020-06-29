@@ -14,12 +14,16 @@ namespace ProjectBlazor.Data.Game.General
 		public PbPlayer Player { get; set; }
 		public List<PbEquipment> Equipment { get; set; }
 		public List<PbAbility> Abilities { get; set; }
+		public List<PbRace> Races { get; set; }
+		public List<PbClass> Classes { get; set; }
 		public PbBattle Battle { get; set; }
 
 		public PbGame()
 		{
 			Equipment = InitEquipment();
 			Abilities = InitAbilities();
+			Races = InitRaces();
+			Classes = InitClasses();
 			Player = InitPlayer();
 			Battle = InitBattle();
 		}
@@ -199,6 +203,94 @@ namespace ProjectBlazor.Data.Game.General
 		/// This will eventually initialize/load from a source
 		/// </summary>
 		/// <returns></returns>
+		private List<PbRace> InitRaces()
+		{
+			List<PbRace> races = new List<PbRace>
+			{
+				new PbRace
+				{
+					Name = "Human",
+					Description = "Precursor species.",
+					Stats = new PbStats() {  Hp = 0, Attack = 1, Defense = 0, MagicAttack = 1, MagicDefense = 0, Speed = 0, ResistFire = -10, ResistIce = 10, ResistLightning = 0, ResistEarth = 0, ResistLight = 10, ResistDark = -10 }
+				},
+				new PbRace
+				{
+					Name = "Cyborg",
+					Description = "When tech becomes too integrated",
+					Stats = new PbStats() {  Hp = 0, Attack = 1, Defense = 1, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = -10, ResistLightning = -10, ResistEarth = 10, ResistLight = 0, ResistDark = 10 }
+				},
+				new PbRace
+				{
+					Name = "Mutant",
+					Description = "When magic becomes too integrated",
+					Stats = new PbStats() {  Hp = 0, Attack = 0, Defense = 0, MagicAttack = 1, MagicDefense = 1, Speed = 0, ResistFire = -10, ResistIce = 0, ResistLightning = 10, ResistEarth = 0, ResistLight = -10, ResistDark = 10 }
+				}
+			};
+
+			return races;
+		}
+
+		/// <summary>
+		/// This will eventually initialize/load from a source
+		/// </summary>
+		/// <returns></returns>
+		private List<PbClass> InitClasses()
+		{
+			List<PbClass> classes = new List<PbClass>
+			{
+				new PbClass
+				{
+					Name = "Hunter",
+					Description = "",
+					Stats = new PbStats() {  Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+				},
+				new PbClass
+				{
+					Name = "Champion",
+					Description = "",
+					Stats = new PbStats() {  Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+				},
+				new PbClass
+				{
+					Name = "Ranger",
+					Description = "",
+					Stats = new PbStats() {  Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+				},
+				new PbClass
+				{
+					Name = "Assassin",
+					Description = "",
+					Stats = new PbStats() {  Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+				},
+				new PbClass
+				{
+					Name = "Vanguard",
+					Description = "",
+					Stats = new PbStats() {  Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+				},
+				new PbClass
+				{
+					Name = "Sorcerer",
+					Description = "",
+					Stats = new PbStats() {  Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+				},
+				new PbClass
+				{
+					Name = "Technician",
+					Description = "",
+					Stats = new PbStats() {  Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+				}
+			};
+
+			return classes;
+		}
+
+
+
+		/// <summary>
+		/// This will eventually initialize/load from a source
+		/// </summary>
+		/// <returns></returns>
 		private PbPlayer InitPlayer()
 		{
 			PbPlayer player = new PbPlayer()
@@ -210,6 +302,8 @@ namespace ProjectBlazor.Data.Game.General
 				Stats = new PbStats() { Hp = 10, Attack = 1, Defense = 1, MagicAttack = 1, MagicDefense = 1, Speed = 1, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 },
 				EquipmentUnlocked = Equipment,
 				Abilities = Abilities,
+				Race = Races.First(x => x.Name.Equals("Human", StringComparison.OrdinalIgnoreCase)),
+				Class = Classes.First(x => x.Name.Equals("Hunter", StringComparison.OrdinalIgnoreCase)),
 				Weapon = Equipment.First(x => x.EquipmentType == PbTypes.EQUIPMENT_TYPE.WEAPON),
 				Armor = Equipment.First(x => x.EquipmentType == PbTypes.EQUIPMENT_TYPE.ARMOR),
 				Barrier = Equipment.First(x => x.EquipmentType == PbTypes.EQUIPMENT_TYPE.BARRIER)
