@@ -7,7 +7,7 @@
 
 @foreach (ProjectBlazor.Data.Game.Equipment.PbEquipment item in ProjectBlazorGame.Equipment)
 {
-    <table class="table table-bordered">
+    <table class="table table-bordered table-sm">
         <tr>
             <td>
                 <ProjectBlazor.Pages.Stats.EquipmentInfo Equipment="@item" EquipmentToCompare="@ProjectBlazorGame.GetPlayerEquippedItem(item.EquipmentType)" />

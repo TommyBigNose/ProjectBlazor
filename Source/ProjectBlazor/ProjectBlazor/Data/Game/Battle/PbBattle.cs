@@ -1,5 +1,7 @@
 ﻿using ProjectBlazor.Data.Game.Ability;
+using ProjectBlazor.Data.Game.Exception;
 using ProjectBlazor.Data.Game.General;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -27,7 +29,53 @@ namespace ProjectBlazor.Data.Game.Battle
 
 		public bool CanBattleContinue()
 		{
-			return Player.IsDead() || Enemy.IsDead();
+			return !Player.IsDead() && !Enemy.IsDead();
+		}
+
+		public PbTypes.BATTLE_RESULT GetBattleResult()
+		{
+			PbTypes.BATTLE_RESULT result = PbTypes.BATTLE_RESULT.ONGOING;
+
+			if (!CanBattleContinue())
+			{
+				if (Player.IsDead()) result = PbTypes.BATTLE_RESULT.LOSS;
+				else result = PbTypes.BATTLE_RESULT.VICTORY;
+			}
+
+			return result;
+		}
+
+		public PbBattleReward GetBattleReward()
+		{
+			PbBattleReward reward;
+
+			if (GetBattleResult() == PbTypes.BATTLE_RESULT.VICTORY)
+			{
+				reward = new PbBattleReward
+				{
+					Exp = Enemy.Exp,
+					Credits = Enemy.Credits
+				};
+			}
+			else if (GetBattleResult() == PbTypes.BATTLE_RESULT.LOSS)
+			{
+				reward = new PbBattleReward
+				{
+					Exp = (int)Math.Ceiling(Enemy.Exp * PbConstants.Battle.BattleLossRewardRatio),
+					Credits = (int)Math.Ceiling(Enemy.Credits * PbConstants.Battle.BattleLossRewardRatio)
+				};
+			}
+			else
+			{
+				//reward = new PbBattleReward
+				//{
+				//	Exp = 0,
+				//	Credits = 0
+				//};
+				throw new PbException($"{nameof(GetBattleReward)} - Attempted to get a reward when the battle is still going");
+			}
+
+			return reward;
 		}
 
 		public void InputPlayerAction(string abilityName)
@@ -38,31 +86,6 @@ namespace ProjectBlazor.Data.Game.Battle
 
 		public void InputPlayerAction(PbAbility abilityUsed)
 		{
-			//int playerfinalOutput = 0;
-
-			//playerfinalOutput += (int)Math.Ceiling(Player.GetAttackTotal() * abilityUsed.Stats.AttackRatio);
-			//playerfinalOutput += (int)Math.Ceiling(Player.GetMagicAttackTotal() * abilityUsed.Stats.MagicAttackRatio);
-
-			//int playerFinalSpeed = 0;
-			//playerFinalSpeed += (int)Math.Ceiling(Player.GetSpeedTotal() * abilityUsed.Stats.SpeedRatio);
-
-			//int enemyfinalOutput = 0;
-
-			//enemyfinalOutput += (int)Math.Ceiling(Enemy.GetAttackTotal() * Enemy.Abilities[0].Stats.AttackRatio);
-			//enemyfinalOutput += (int)Math.Ceiling(Enemy.GetMagicAttackTotal() * Enemy.Abilities[0].Stats.MagicAttackRatio);
-
-			//int enemyFinalSpeed = 0;
-			//enemyFinalSpeed += (int)Math.Ceiling(Player.GetSpeedTotal() * Enemy.Abilities[0].Stats.SpeedRatio);
-
-			//if (abilityUsed.AbilityActionType == PbTypes.ABILITY_ACTION_TYPE.DAMAGE)
-			//{
-
-			//}
-			//else if (abilityUsed.AbilityActionType == PbTypes.ABILITY_ACTION_TYPE.HEAL)
-			//{
-
-			//}
-
 			PrepareAction(abilityUsed, Enemy.Abilities[0]);
 			RunBattleTurn();
 		}

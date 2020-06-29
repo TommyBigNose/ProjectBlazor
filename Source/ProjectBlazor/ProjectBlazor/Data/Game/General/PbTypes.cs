@@ -36,5 +36,19 @@
 			HEAL,
 			STATUS
 		}
+
+		public enum BATTLE_RESULT
+		{
+			VICTORY,
+			LOSS,
+			ONGOING
+		}
+
+		public enum GAME_SCENE
+		{
+			MAIN,
+			BATTLE,
+			EQUIPMENT
+		}
 	}
 }

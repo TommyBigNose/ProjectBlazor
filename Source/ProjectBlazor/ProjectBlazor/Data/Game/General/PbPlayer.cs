@@ -37,6 +37,16 @@ namespace ProjectBlazor.Data.Game.General
 			Stats.Speed += 1;
 		}
 
+		public void AddExp(int exp)
+		{
+			Exp += exp;
+			if (Exp >= 100)
+			{
+				Exp -= 100;
+				LevelUp();
+			}
+		}
+
 		public void ResetHp()
 		{
 			_hpCurrent = GetHpTotal();

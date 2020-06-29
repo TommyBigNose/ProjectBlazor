@@ -71,6 +71,12 @@ namespace ProjectBlazor.Data.Game.General
 			}
 		}
 
+		public void RewardPlayer(PbBattleReward reward)
+		{
+			Player.AddExp(reward.Exp);
+			Player.Credits += reward.Credits;
+		}
+
 		/// <summary>
 		/// This will eventually initialize/load from a source
 		/// </summary>

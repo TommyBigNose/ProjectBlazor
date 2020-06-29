@@ -2,7 +2,7 @@
 
 <h3>StatInfo</h3>
 <div>
-    <table class="table table-bordered">
+    <table class="table table-bordered table-sm">
         <tr>
             <td>HP</td>
             <td>@Stats.Hp</td>
@@ -150,15 +150,15 @@
 
         if (stat1 > stat2)
         {
-            difference = ($"<p class=\"text-success\">+{stat1 - stat2}</p>");
+            difference = ($"<span class=\"text-success\">+ {stat1 - stat2}</span>");
         }
         else if (stat1 < stat2)
         {
-            difference = ($"<p class=\"text-danger\">{stat1 - stat2}</p>");
+            difference = ($"<span class=\"text-danger\">- {Math.Abs(stat1 - stat2)}</span>");
         }
         else
         {
-            difference = ($"<p class=\"text-info\">0</p>");
+            difference = ($"<span class=\"text-info\"></span>");
         }
 
         return difference;

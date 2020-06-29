@@ -1,11 +1,12 @@
 ﻿@page "/Battle/BattleScreen"
 
 @using ProjectBlazor.Data.Game
+@using ProjectBlazor.Data.Game.General
 @inject ProjectBlazor.Data.Game.General.PbGame ProjectBlazorGame
 
 <h3>BattleScreen</h3>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-sm">
     <tr>
         <td>
             Player
@@ -40,7 +41,15 @@
 @code {
     private void UseAbility(string abilityName)
     {
-        Console.WriteLine(abilityName);
-        ProjectBlazorGame.Battle.InputPlayerAction(abilityName);
+        PbTypes.BATTLE_RESULT battleResult = ProjectBlazorGame.Battle.GetBattleResult();
+
+        if (battleResult == PbTypes.BATTLE_RESULT.ONGOING)
+        {
+            ProjectBlazorGame.Battle.InputPlayerAction(abilityName);
+        }
+        else
+        {
+            ProjectBlazorGame.RewardPlayer(ProjectBlazorGame.Battle.GetBattleReward());
+        }
     }
 }
