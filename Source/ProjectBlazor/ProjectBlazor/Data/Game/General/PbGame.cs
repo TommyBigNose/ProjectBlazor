@@ -75,6 +75,20 @@ namespace ProjectBlazor.Data.Game.General
 			}
 		}
 
+		public void EquipRace(string name)
+		{
+			PbRace race = Races.Find(x => x.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+
+			Player.Race = race;
+		}
+
+		public void EquipClass(string name)
+		{
+			PbClass pbClass = Classes.Find(x => x.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+
+			Player.Class = pbClass;
+		}
+
 		public void RewardPlayer(PbBattleReward reward)
 		{
 			Player.AddExp(reward.Exp);

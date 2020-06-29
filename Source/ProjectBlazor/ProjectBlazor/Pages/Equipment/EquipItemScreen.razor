@@ -19,15 +19,12 @@
             </td>
         </tr>
     </table>
-
-
 }
 
 
 @code {
     private void EquipItem(ProjectBlazor.Data.Game.General.PbTypes.EQUIPMENT_TYPE equipmentType, string name)
     {
-        Console.WriteLine(name);
         ProjectBlazorGame.EquipItem(equipmentType, name);
     }
 }

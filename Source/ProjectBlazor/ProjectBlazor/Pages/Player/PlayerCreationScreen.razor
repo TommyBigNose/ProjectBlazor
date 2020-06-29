@@ -1,0 +1,53 @@
+﻿@page "/Player/PlayerCreationScreen"
+
+@using ProjectBlazor.Data.Game
+@inject ProjectBlazor.Data.Game.General.PbGame ProjectBlazorGame
+
+<h3>PlayerCreationScreen</h3>
+
+@foreach (ProjectBlazor.Data.Game.General.PbRace race in ProjectBlazorGame.Races)
+{
+    <table class="table table-bordered table-sm">
+        <tr>
+            <td>
+                <ProjectBlazor.Pages.Player.RaceInfo Race="@race" RaceToCompare="@ProjectBlazorGame.Player.Race" />
+            </td>
+            <td>
+                <button class="btn btn-primary" @onclick="@(e => EquipRace(race.Name))">
+                    Select
+                </button>
+            </td>
+        </tr>
+    </table>
+}
+
+<hr />
+<hr />
+
+@foreach (ProjectBlazor.Data.Game.General.PbClass pbClass in ProjectBlazorGame.Classes)
+{
+    <table class="table table-bordered table-sm">
+        <tr>
+            <td>
+                <ProjectBlazor.Pages.Player.ClassInfo Class="@pbClass" ClassToCompare="@ProjectBlazorGame.Player.Class" />
+            </td>
+            <td>
+                <button class="btn btn-primary" @onclick="@(e => EquipClass(pbClass.Name))">
+                    Select
+                </button>
+            </td>
+        </tr>
+    </table>
+}
+
+@code {
+    private void EquipRace(string name)
+    {
+        ProjectBlazorGame.EquipRace(name);
+    }
+
+    private void EquipClass(string name)
+    {
+        ProjectBlazorGame.EquipClass(name);
+    }
+}
