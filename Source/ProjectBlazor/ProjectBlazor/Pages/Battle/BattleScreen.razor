@@ -3,6 +3,7 @@
 @using ProjectBlazor.Data.Game
 @using ProjectBlazor.Data.Game.General
 @inject ProjectBlazor.Data.Game.General.PbGame ProjectBlazorGame
+@inject NavigationManager NavManager
 
 <h3>BattleScreen</h3>
 
@@ -41,15 +42,21 @@
 @code {
     private void UseAbility(string abilityName)
     {
-        PbTypes.BATTLE_RESULT battleResult = ProjectBlazorGame.Battle.GetBattleResult();
-
-        if (battleResult == PbTypes.BATTLE_RESULT.ONGOING)
+        if (ProjectBlazorGame.Battle.GetBattleResult() == PbTypes.BATTLE_RESULT.ONGOING)
         {
             ProjectBlazorGame.Battle.InputPlayerAction(abilityName);
         }
-        else
+
+        if (ProjectBlazorGame.Battle.GetBattleResult() != PbTypes.BATTLE_RESULT.ONGOING)
         {
-            ProjectBlazorGame.RewardPlayer(ProjectBlazorGame.Battle.GetBattleReward());
+            EndBattle();
         }
+    }
+
+    private void EndBattle()
+    {
+        ProjectBlazorGame.RewardPlayer(ProjectBlazorGame.Battle.GetBattleReward());
+        ProjectBlazorGame.ResetBattle();
+        NavManager.NavigateTo("/");
     }
 }
