@@ -154,43 +154,43 @@ namespace ProjectBlazor.Data.DataSource
 				{
 					Name = "Hunter",
 					Description = "",
-					Stats = new PbStats() {  Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+					Stats = new PbStats() {  Hp = 1, Attack = 1, Defense = 1, MagicAttack = 1, MagicDefense = 1, Speed = 1, ResistFire = 5, ResistIce = 5, ResistLightning = 5, ResistEarth = 5, ResistLight = 5, ResistDark = 5 }
 				},
 				new PbClass
 				{
 					Name = "Champion",
 					Description = "",
-					Stats = new PbStats() {  Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+					Stats = new PbStats() {  Hp = 1, Attack = 3, Defense = 1, MagicAttack = 0, MagicDefense = 0, Speed = 1, ResistFire = 10, ResistIce = 10, ResistLightning = -10, ResistEarth = -10, ResistLight = 0, ResistDark = 10 }
 				},
 				new PbClass
 				{
 					Name = "Ranger",
 					Description = "",
-					Stats = new PbStats() {  Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+					Stats = new PbStats() {  Hp = 1, Attack = 1, Defense = 0, MagicAttack = 1, MagicDefense = 0, Speed = 3, ResistFire = 0, ResistIce = 0, ResistLightning = 5, ResistEarth = 5, ResistLight = 5, ResistDark = 15 }
 				},
 				new PbClass
 				{
 					Name = "Assassin",
 					Description = "",
-					Stats = new PbStats() {  Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+					Stats = new PbStats() {  Hp = 0, Attack = 3, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 3, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = -50, ResistDark = 50 }
 				},
 				new PbClass
 				{
 					Name = "Vanguard",
 					Description = "",
-					Stats = new PbStats() {  Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+					Stats = new PbStats() {  Hp = 2, Attack = 0, Defense = 2, MagicAttack = 0, MagicDefense = 2, Speed = 0, ResistFire = 10, ResistIce = 10, ResistLightning = 10, ResistEarth = 10, ResistLight = 0, ResistDark = 0 }
 				},
 				new PbClass
 				{
 					Name = "Sorcerer",
 					Description = "",
-					Stats = new PbStats() {  Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+					Stats = new PbStats() {  Hp = 0, Attack = 0, Defense = 0, MagicAttack = 3, MagicDefense = 3, Speed = 0, ResistFire = 10, ResistIce = 10, ResistLightning = 10, ResistEarth = 10, ResistLight = 10, ResistDark = 10 }
 				},
 				new PbClass
 				{
 					Name = "Technician",
 					Description = "",
-					Stats = new PbStats() {  Hp = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+					Stats = new PbStats() {  Hp = 0, Attack = 0, Defense = 1, MagicAttack = 2, MagicDefense = 1, Speed = 2, ResistFire = 5, ResistIce = -5, ResistLightning = -5, ResistEarth = 15, ResistLight = 5, ResistDark = 0 }
 				}
 			};
 

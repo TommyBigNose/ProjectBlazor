@@ -86,7 +86,9 @@ namespace ProjectBlazor.Data.Game.General
 			return Stats.Hp +
 				Weapon.Stats.Hp +
 				Armor.Stats.Hp +
-				Barrier.Stats.Hp;
+				Barrier.Stats.Hp +
+				Race.Stats.Hp +
+				Class.Stats.Hp;
 		}
 
 		public int GetAttackTotal()
@@ -94,7 +96,9 @@ namespace ProjectBlazor.Data.Game.General
 			return Stats.Attack +
 				Weapon.Stats.Attack +
 				Armor.Stats.Attack +
-				Barrier.Stats.Attack;
+				Barrier.Stats.Attack +
+				Race.Stats.Attack +
+				Class.Stats.Attack;
 		}
 
 		public int GetDefenseTotal()
@@ -102,7 +106,9 @@ namespace ProjectBlazor.Data.Game.General
 			return Stats.Defense +
 				Weapon.Stats.Defense +
 				Armor.Stats.Defense +
-				Barrier.Stats.Defense;
+				Barrier.Stats.Defense +
+				Race.Stats.Defense +
+				Class.Stats.Defense;
 		}
 
 		public int GetMagicAttackTotal()
@@ -110,7 +116,9 @@ namespace ProjectBlazor.Data.Game.General
 			return Stats.MagicAttack +
 				Weapon.Stats.MagicAttack +
 				Armor.Stats.MagicAttack +
-				Barrier.Stats.MagicAttack;
+				Barrier.Stats.MagicAttack +
+				Race.Stats.MagicAttack +
+				Class.Stats.MagicAttack;
 		}
 
 		public int GetMagicDefenseTotal()
@@ -118,7 +126,9 @@ namespace ProjectBlazor.Data.Game.General
 			return Stats.MagicDefense +
 				Weapon.Stats.MagicDefense +
 				Armor.Stats.MagicDefense +
-				Barrier.Stats.MagicDefense;
+				Barrier.Stats.MagicDefense +
+				Race.Stats.MagicDefense +
+				Class.Stats.MagicDefense;
 		}
 
 		public int GetSpeedTotal()
@@ -126,7 +136,9 @@ namespace ProjectBlazor.Data.Game.General
 			return Stats.Speed +
 				Weapon.Stats.Speed +
 				Armor.Stats.Speed +
-				Barrier.Stats.Speed;
+				Barrier.Stats.Speed +
+				Race.Stats.Speed +
+				Class.Stats.Speed;
 		}
 
 		public int GetResistFireTotal()
@@ -134,7 +146,9 @@ namespace ProjectBlazor.Data.Game.General
 			return Stats.ResistFire +
 				Weapon.Stats.ResistFire +
 				Armor.Stats.ResistFire +
-				Barrier.Stats.ResistFire;
+				Barrier.Stats.ResistFire +
+				Race.Stats.ResistFire +
+				Class.Stats.ResistFire;
 		}
 
 		public int GetResistIceTotal()
@@ -142,7 +156,9 @@ namespace ProjectBlazor.Data.Game.General
 			return Stats.ResistIce +
 				Weapon.Stats.ResistIce +
 				Armor.Stats.ResistIce +
-				Barrier.Stats.ResistIce;
+				Barrier.Stats.ResistIce +
+				Race.Stats.ResistIce +
+				Class.Stats.ResistIce;
 		}
 
 		public int GetResistLightningTotal()
@@ -150,7 +166,9 @@ namespace ProjectBlazor.Data.Game.General
 			return Stats.ResistLightning +
 				Weapon.Stats.ResistLightning +
 				Armor.Stats.ResistLightning +
-				Barrier.Stats.ResistLightning;
+				Barrier.Stats.ResistLightning +
+				Race.Stats.ResistLightning +
+				Class.Stats.ResistLightning;
 		}
 
 		public int GetResistEarthTotal()
@@ -158,7 +176,9 @@ namespace ProjectBlazor.Data.Game.General
 			return Stats.ResistEarth +
 				Weapon.Stats.ResistEarth +
 				Armor.Stats.ResistEarth +
-				Barrier.Stats.ResistEarth;
+				Barrier.Stats.ResistEarth +
+				Race.Stats.ResistEarth +
+				Class.Stats.ResistEarth;
 		}
 
 		public int GetResistLightTotal()
@@ -166,7 +186,9 @@ namespace ProjectBlazor.Data.Game.General
 			return Stats.ResistLight +
 				Weapon.Stats.ResistLight +
 				Armor.Stats.ResistLight +
-				Barrier.Stats.ResistLight;
+				Barrier.Stats.ResistLight +
+				Race.Stats.ResistLight +
+				Class.Stats.ResistLight;
 		}
 
 		public int GetResistDarkTotal()
@@ -174,7 +196,9 @@ namespace ProjectBlazor.Data.Game.General
 			return Stats.ResistDark +
 				Weapon.Stats.ResistDark +
 				Armor.Stats.ResistDark +
-				Barrier.Stats.ResistDark;
+				Barrier.Stats.ResistDark +
+				Race.Stats.ResistDark +
+				Class.Stats.ResistDark;
 		}
 
 		public double GetAppropriateResistance(ELEMENT element)
