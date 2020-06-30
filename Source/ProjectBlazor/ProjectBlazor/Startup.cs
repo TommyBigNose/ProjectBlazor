@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProjectBlazor.Data.DataSource;
 using ProjectBlazor.Data.Game.General;
 
 namespace ProjectBlazor
@@ -22,7 +23,7 @@ namespace ProjectBlazor
 		{
 			services.AddRazorPages();
 			services.AddServerSideBlazor();
-			//services.AddSingleton<WeatherForecastService>();
+			services.AddSingleton<IPbDataSource, LocalPbDataSource>();
 			services.AddSingleton<PbGame>();
 		}
 
