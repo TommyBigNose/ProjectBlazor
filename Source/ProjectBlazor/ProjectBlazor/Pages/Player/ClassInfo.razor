@@ -1,5 +1,30 @@
 ﻿<h3>ClassInfo</h3>
 
+<div>
+    <table class="table table-bordered table-sm">
+        <tr>
+            <td>Name</td>
+            <td>@Class.Name</td>
+        </tr>
+
+        <tr>
+            <td>Description</td>
+            <td>@Class.Description</td>
+        </tr>
+
+    </table>
+
+    @if (ClassToCompare != null)
+    {
+        <ProjectBlazor.Pages.Stats.StatInfo Stats="@Class.Stats" StatsToCompare="@ClassToCompare.Stats" />
+    }
+    else
+    {
+        <ProjectBlazor.Pages.Stats.StatInfo Stats="@Class.Stats" />
+    }
+
+</div>
+
 @code {
     [Parameter]
     public ProjectBlazor.Data.Game.General.PbClass Class { get; set; }

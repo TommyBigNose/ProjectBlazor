@@ -1,5 +1,30 @@
 ﻿<h3>RaceInfo</h3>
 
+<div>
+    <table class="table table-bordered table-sm">
+        <tr>
+            <td>Name</td>
+            <td>@Race.Name</td>
+        </tr>
+
+        <tr>
+            <td>Description</td>
+            <td>@Race.Description</td>
+        </tr>
+
+    </table>
+
+    @if (RaceToCompare != null)
+    {
+        <ProjectBlazor.Pages.Stats.StatInfo Stats="@Race.Stats" StatsToCompare="@RaceToCompare.Stats" />
+    }
+    else
+    {
+        <ProjectBlazor.Pages.Stats.StatInfo Stats="@Race.Stats" />
+    }
+
+</div>
+
 @code {
     [Parameter]
     public ProjectBlazor.Data.Game.General.PbRace Race { get; set; }
