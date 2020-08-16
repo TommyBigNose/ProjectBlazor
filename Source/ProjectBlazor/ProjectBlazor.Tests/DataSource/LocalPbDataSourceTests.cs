@@ -28,10 +28,9 @@ namespace ProjectBlazor.Tests.DataSource
 		public void GetEquipment_ReturnsEquipment()
 		{
 			// Arrange
-			List<PbEquipment> result = new List<PbEquipment>();
 
 			// Act
-			result = _sut.GetEquipment();
+			List<PbEquipment> result = _sut.GetEquipment();
 
 			// Asert
 			Assert.IsTrue(result.Count > 0);
@@ -41,10 +40,9 @@ namespace ProjectBlazor.Tests.DataSource
 		public void GetAbilities_ReturnsAbilities()
 		{
 			// Arrange
-			List<PbAbility> result = new List<PbAbility>();
 
 			// Act
-			result = _sut.GetAbilities();
+			List<PbAbility> result = _sut.GetAbilities();
 
 			// Asert
 			Assert.IsTrue(result.Count > 0);
@@ -54,10 +52,9 @@ namespace ProjectBlazor.Tests.DataSource
 		public void GetRaces_ReturnsRaces()
 		{
 			// Arrange
-			List<PbRace> result = new List<PbRace>();
 
 			// Act
-			result = _sut.GetRaces();
+			List<PbRace> result = _sut.GetRaces();
 
 			// Asert
 			Assert.IsTrue(result.Count > 0);
@@ -67,10 +64,9 @@ namespace ProjectBlazor.Tests.DataSource
 		public void GetClasses_ReturnsClasses()
 		{
 			// Arrange
-			List<PbClass> result = new List<PbClass>();
 
 			// Act
-			result = _sut.GetClasses();
+			List<PbClass> result = _sut.GetClasses();
 
 			// Asert
 			Assert.IsTrue(result.Count > 0);

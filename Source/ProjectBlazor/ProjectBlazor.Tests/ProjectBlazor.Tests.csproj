@@ -13,10 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Game\Battle\" />
     <Folder Include="Game\Ability\" />
     <Folder Include="Game\Equipment\" />
-    <Folder Include="Game\General\" />
     <Folder Include="Game\Stats\" />
   </ItemGroup>
 
