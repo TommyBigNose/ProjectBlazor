@@ -9,6 +9,7 @@ namespace ProjectBlazor.Data.Game.General
 	public class PbEnemy : PbObject, IPbBattleReady
 	{
 		private int _hpCurrent;
+		private int _apCurrent;
 		public int Level { get; set; }
 		public int Exp { get; set; }
 		public int Credits { get; set; }
@@ -55,6 +56,16 @@ namespace ProjectBlazor.Data.Game.General
 		public int GetHpTotal()
 		{
 			return Stats.Hp;
+		}
+
+		public int GetApCurrent()
+		{
+			return _apCurrent;
+		}
+
+		public int GetApTotal()
+		{
+			return Stats.Ap;
 		}
 
 		public int GetAttackTotal()

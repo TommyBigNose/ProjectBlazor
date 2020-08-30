@@ -15,6 +15,17 @@
         </tr>
 
         <tr>
+            <td>AP</td>
+            <td>@Stats.Ap</td>
+            @if (StatsToCompare != null)
+            {
+                <td>
+                    @((MarkupString)GetStatsDifferenceFormatted(Stats.Ap, StatsToCompare.Ap))
+                </td>
+            }
+        </tr>
+
+        <tr>
             <td>Attack</td>
             <td>@Stats.Attack</td>
             @if (StatsToCompare != null)

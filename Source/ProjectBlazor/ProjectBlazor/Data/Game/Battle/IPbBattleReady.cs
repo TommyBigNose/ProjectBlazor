@@ -11,6 +11,8 @@ namespace ProjectBlazor.Data.Game.Battle
 		void ApplyStatusEffects();
 		int GetHpCurrent();
 		int GetHpTotal();
+		int GetApCurrent();
+		int GetApTotal();
 		int GetAttackTotal();
 		int GetDefenseTotal();
 		int GetMagicAttackTotal();

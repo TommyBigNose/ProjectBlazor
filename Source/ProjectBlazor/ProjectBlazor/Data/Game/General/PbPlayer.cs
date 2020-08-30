@@ -10,6 +10,7 @@ namespace ProjectBlazor.Data.Game.General
 	public class PbPlayer : IPbBattleReady
 	{
 		private int _hpCurrent;
+		private int _apCurrent;
 		public int Level { get; set; }
 		public int LevelPoints { get; set; }
 		public int Exp { get; set; }
@@ -32,6 +33,7 @@ namespace ProjectBlazor.Data.Game.General
 		{
 			Level++;
 			Stats.Hp += 3 + Race.Stats.Hp + Class.Stats.Hp;
+			Stats.Ap += 3 + Race.Stats.Ap + Class.Stats.Ap;
 			Stats.Attack += 1 + Race.Stats.Attack + Class.Stats.Attack;
 			Stats.Defense += 1 + Race.Stats.Defense + Class.Stats.Defense;
 			Stats.MagicAttack += 1 + Race.Stats.MagicAttack + Class.Stats.MagicAttack;
@@ -89,6 +91,21 @@ namespace ProjectBlazor.Data.Game.General
 				Barrier.Stats.Hp +
 				Race.Stats.Hp +
 				Class.Stats.Hp;
+		}
+
+		public int GetApCurrent()
+		{
+			return _apCurrent;
+		}
+
+		public int GetApTotal()
+		{
+			return Stats.Ap +
+				Weapon.Stats.Ap +
+				Armor.Stats.Ap +
+				Barrier.Stats.Ap +
+				Race.Stats.Ap +
+				Class.Stats.Ap;
 		}
 
 		public int GetAttackTotal()
