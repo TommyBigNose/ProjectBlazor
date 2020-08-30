@@ -32,6 +32,7 @@ namespace ProjectBlazor.Data.Game.General
 		public void LevelUp()
 		{
 			Level++;
+			LevelPoints++;
 			Stats.Hp += 3 + Race.Stats.Hp + Class.Stats.Hp;
 			Stats.Ap += 3 + Race.Stats.Ap + Class.Stats.Ap;
 			Stats.Attack += 1 + Race.Stats.Attack + Class.Stats.Attack;

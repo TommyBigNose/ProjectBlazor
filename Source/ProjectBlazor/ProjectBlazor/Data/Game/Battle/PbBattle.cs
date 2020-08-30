@@ -115,9 +115,11 @@ namespace ProjectBlazor.Data.Game.Battle
 
 		public void RunBattleTurn()
 		{
+			List<PbBattleActionResult> battleActionResults = new List<PbBattleActionResult>();
+
 			foreach (PbBattleAction action in BattleActionQueue)
 			{
-				action.RunAction();
+				battleActionResults.Add(action.RunAction());
 			}
 			BattleActionQueue.Clear();
 		}

@@ -55,8 +55,14 @@ namespace ProjectBlazor.Data.Game.Battle
 			return speed;
 		}
 
-		public void RunAction()
+		public PbBattleActionResult RunAction()
 		{
+			PbBattleActionResult battleActionResult = new PbBattleActionResult()
+			{
+				Source = Source,
+				AbilityActionType = SourceAbilityUsed.AbilityActionType
+			};
+
 			if (SourceAbilityUsed.AbilityActionType == General.PbTypes.ABILITY_ACTION_TYPE.DAMAGE)
 			{
 				if (SourceAbilityUsed.OutputStatAttribute == General.PbTypes.STAT_ATTRIBUTE.ATTACK)
@@ -65,6 +71,9 @@ namespace ProjectBlazor.Data.Game.Battle
 					if (IsCriticalHit()) totalDamage = (int)Math.Ceiling(totalDamage * PbConstants.Battle.CriticalHitDamageRatio);
 
 					Target.TakeDamage(totalDamage);
+
+					battleActionResult.Target = Target;
+					battleActionResult.Output = totalDamage;
 				}
 
 				if (SourceAbilityUsed.OutputStatAttribute == General.PbTypes.STAT_ATTRIBUTE.ATTACK_MAGIC)
@@ -77,6 +86,9 @@ namespace ProjectBlazor.Data.Game.Battle
 					totalDamage = (int)Math.Ceiling(totalDamage * damangeResistance);
 
 					Target.TakeDamage(totalDamage);
+
+					battleActionResult.Target = Target;
+					battleActionResult.Output = totalDamage;
 				}
 			}
 			else if (SourceAbilityUsed.AbilityActionType == General.PbTypes.ABILITY_ACTION_TYPE.HEAL)
@@ -84,11 +96,16 @@ namespace ProjectBlazor.Data.Game.Battle
 				int totalHeal = GetSourceOutput();
 
 				Source.TakeHeal(totalHeal);
+
+				battleActionResult.Target = Source;
+				battleActionResult.Output = totalHeal;
 			}
 			else if (SourceAbilityUsed.AbilityActionType == General.PbTypes.ABILITY_ACTION_TYPE.STATUS)
 			{
 
 			}
+
+			return battleActionResult;
 		}
 
 		public bool IsCriticalHit()
