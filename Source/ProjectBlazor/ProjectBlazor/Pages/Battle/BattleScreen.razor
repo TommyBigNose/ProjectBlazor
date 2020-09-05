@@ -21,12 +21,12 @@
         <td>
             HP |  @ProjectBlazorGame.Battle.Player.GetHpCurrent() / @ProjectBlazorGame.Battle.Player.GetHpTotal()
             <br /><br />
-            <label>@playerResult.Output</label>
+            <label>@playerResult</label>
         </td>
         <td>
             HP |  @ProjectBlazorGame.Battle.Enemy.GetHpCurrent() / @ProjectBlazorGame.Battle.Enemy.GetHpTotal()
             <br /><br />
-            <label>@enemyResult.Output</label>
+            <label>@enemyResult</label>
         </td>
     </tr>
     <tr>
@@ -68,20 +68,37 @@
         NavManager.NavigateTo("/");
     }
 
-    PbBattleActionResult playerResult = new PbBattleActionResult();
-    PbBattleActionResult enemyResult = new PbBattleActionResult();
+    string playerResult = "";
+    string enemyResult = "";
 
     private void ShowBattleResults(List<PbBattleActionResult> battleActionResults)
     {
+        playerResult = "";
+        enemyResult = "";
+
         foreach (PbBattleActionResult result in battleActionResults)
         {
             if (result.Source.GetBattleParticipant() == PbTypes.BATTLE_PARTICIPANT.PLAYER)
             {
-                enemyResult = result;
+                if (result.AbilityActionType == PbTypes.ABILITY_ACTION_TYPE.HEAL)
+                {
+                    playerResult += " + " + result.Output + " | ";
+                }
+                else
+                {
+                    enemyResult += " - " + result.Output + " | ";
+                }
             }
             else if (result.Source.GetBattleParticipant() == PbTypes.BATTLE_PARTICIPANT.ENEMY)
             {
-                playerResult = result;
+                if (result.AbilityActionType == PbTypes.ABILITY_ACTION_TYPE.HEAL)
+                {
+                    enemyResult += " + " + result.Output + " | ";
+                }
+                else
+                {
+                    playerResult += " - " + result.Output + " | ";
+                }
             }
         }
     }
