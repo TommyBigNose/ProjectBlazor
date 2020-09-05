@@ -4,6 +4,7 @@ namespace ProjectBlazor.Data.Game.Battle
 {
 	public interface IPbBattleReady
 	{
+		BATTLE_PARTICIPANT GetBattleParticipant();
 		void ResetHp();
 		bool IsDead();
 		void TakeDamage(int damage);

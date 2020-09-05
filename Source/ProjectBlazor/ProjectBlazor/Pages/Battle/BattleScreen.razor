@@ -2,6 +2,7 @@
 
 @using ProjectBlazor.Data.Game
 @using ProjectBlazor.Data.Game.General
+@using ProjectBlazor.Data.Game.Battle
 @inject ProjectBlazor.Data.Game.General.PbGame ProjectBlazorGame
 @inject NavigationManager NavManager
 
@@ -9,19 +10,23 @@
 
 <table class="table table-bordered table-sm">
     <tr>
-        <td>
+        <td width="50%">
             Player
         </td>
-        <td>
+        <td width="50%">
             Enemy
         </td>
     </tr>
     <tr>
         <td>
             HP |  @ProjectBlazorGame.Battle.Player.GetHpCurrent() / @ProjectBlazorGame.Battle.Player.GetHpTotal()
+            <br /><br />
+            <label>@playerResult.Output</label>
         </td>
         <td>
             HP |  @ProjectBlazorGame.Battle.Enemy.GetHpCurrent() / @ProjectBlazorGame.Battle.Enemy.GetHpTotal()
+            <br /><br />
+            <label>@enemyResult.Output</label>
         </td>
     </tr>
     <tr>
@@ -45,6 +50,9 @@
         if (ProjectBlazorGame.Battle.GetBattleResult() == PbTypes.BATTLE_RESULT.ONGOING)
         {
             ProjectBlazorGame.Battle.InputPlayerAction(abilityName);
+
+            List<PbBattleActionResult> battleActionResults = ProjectBlazorGame.Battle.RunBattleTurn();
+            ShowBattleResults(battleActionResults);
         }
 
         if (ProjectBlazorGame.Battle.GetBattleResult() != PbTypes.BATTLE_RESULT.ONGOING)
@@ -58,5 +66,23 @@
         ProjectBlazorGame.RewardPlayer(ProjectBlazorGame.Battle.GetBattleReward());
         ProjectBlazorGame.ResetBattle();
         NavManager.NavigateTo("/");
+    }
+
+    PbBattleActionResult playerResult = new PbBattleActionResult();
+    PbBattleActionResult enemyResult = new PbBattleActionResult();
+
+    private void ShowBattleResults(List<PbBattleActionResult> battleActionResults)
+    {
+        foreach (PbBattleActionResult result in battleActionResults)
+        {
+            if (result.Source.GetBattleParticipant() == PbTypes.BATTLE_PARTICIPANT.PLAYER)
+            {
+                enemyResult = result;
+            }
+            else if (result.Source.GetBattleParticipant() == PbTypes.BATTLE_PARTICIPANT.ENEMY)
+            {
+                playerResult = result;
+            }
+        }
     }
 }

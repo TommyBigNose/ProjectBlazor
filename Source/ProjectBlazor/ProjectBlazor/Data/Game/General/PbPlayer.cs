@@ -52,6 +52,11 @@ namespace ProjectBlazor.Data.Game.General
 			}
 		}
 
+		public BATTLE_PARTICIPANT GetBattleParticipant()
+		{
+			return BATTLE_PARTICIPANT.PLAYER;
+		}
+
 		public void ResetHp()
 		{
 			_hpCurrent = GetHpTotal();

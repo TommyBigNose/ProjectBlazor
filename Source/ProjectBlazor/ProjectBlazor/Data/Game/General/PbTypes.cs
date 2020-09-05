@@ -37,18 +37,23 @@
 			STATUS
 		}
 
+		public enum GAME_SCENE
+		{
+			MAIN,
+			BATTLE,
+			EQUIPMENT
+		}
+
 		public enum BATTLE_RESULT
 		{
 			VICTORY,
 			LOSS,
 			ONGOING
 		}
-
-		public enum GAME_SCENE
+		public enum BATTLE_PARTICIPANT
 		{
-			MAIN,
-			BATTLE,
-			EQUIPMENT
+			PLAYER,
+			ENEMY
 		}
 	}
 }

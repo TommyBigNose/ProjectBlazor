@@ -12,12 +12,14 @@ namespace ProjectBlazor.Data.Game.Battle
 		public PbPlayer Player { get; set; }
 		public PbEnemy Enemy { get; set; }
 		public List<PbBattleAction> BattleActionQueue { get; set; }
+		public List<PbBattleActionResult> BattleActionResults { get; set; }
 
 		public PbBattle(PbPlayer player, PbEnemy enemy)
 		{
 			Player = player;
 			Enemy = enemy;
 			BattleActionQueue = new List<PbBattleAction>();
+			BattleActionResults = new List<PbBattleActionResult>();
 		}
 
 		public void ResetBattle()
@@ -25,6 +27,7 @@ namespace ProjectBlazor.Data.Game.Battle
 			Player.ResetHp();
 			Enemy.ResetHp();
 			BattleActionQueue = new List<PbBattleAction>();
+			BattleActionResults = new List<PbBattleActionResult>();
 		}
 
 		public bool CanBattleContinue()
@@ -87,7 +90,6 @@ namespace ProjectBlazor.Data.Game.Battle
 		public void InputPlayerAction(PbAbility abilityUsed)
 		{
 			PrepareAction(abilityUsed, Enemy.Abilities[0]);
-			RunBattleTurn();
 		}
 
 		public void PrepareAction(PbAbility playerAbilityUsed, PbAbility enemyAbilityUsed)
@@ -113,7 +115,7 @@ namespace ProjectBlazor.Data.Game.Battle
 			BattleActionQueue = BattleActionQueue.OrderByDescending(x => x.GetSourceSpeed()).ToList();
 		}
 
-		public void RunBattleTurn()
+		public List<PbBattleActionResult> RunBattleTurn()
 		{
 			List<PbBattleActionResult> battleActionResults = new List<PbBattleActionResult>();
 
@@ -122,6 +124,8 @@ namespace ProjectBlazor.Data.Game.Battle
 				battleActionResults.Add(action.RunAction());
 			}
 			BattleActionQueue.Clear();
+
+			return battleActionResults;
 		}
 	}
 }
