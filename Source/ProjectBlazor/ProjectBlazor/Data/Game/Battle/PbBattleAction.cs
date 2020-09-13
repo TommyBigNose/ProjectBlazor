@@ -105,6 +105,8 @@ namespace ProjectBlazor.Data.Game.Battle
 
 			}
 
+			Source.UseAp(SourceAbilityUsed.Stats.ApUse);
+
 			return battleActionResult;
 		}
 

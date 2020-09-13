@@ -24,8 +24,8 @@ namespace ProjectBlazor.Data.Game.Battle
 
 		public void ResetBattle()
 		{
-			Player.ResetHp();
-			Enemy.ResetHp();
+			Player.Reset();
+			Enemy.Reset();
 			BattleActionQueue = new List<PbBattleAction>();
 			BattleActionResults = new List<PbBattleActionResult>();
 		}
@@ -33,6 +33,13 @@ namespace ProjectBlazor.Data.Game.Battle
 		public bool CanBattleContinue()
 		{
 			return !Player.IsDead() && !Enemy.IsDead();
+		}
+
+		public bool CanPlayerUseAbility(string abilityName)
+		{
+			PbAbility ability = GetAbilityByName(abilityName);
+
+			return (ability.Stats.ApUse <= Player.GetApCurrent());
 		}
 
 		public PbTypes.BATTLE_RESULT GetBattleResult()
@@ -83,13 +90,13 @@ namespace ProjectBlazor.Data.Game.Battle
 
 		public void InputPlayerAction(string abilityName)
 		{
-			PbAbility ability = Player.Abilities.Find(x => x.Name.Equals(abilityName, System.StringComparison.OrdinalIgnoreCase));
-			InputPlayerAction(ability);
+			PbAbility ability = GetAbilityByName(abilityName);
+			PrepareAction(ability, Enemy.Abilities[0]);
 		}
 
-		public void InputPlayerAction(PbAbility abilityUsed)
+		public PbAbility GetAbilityByName(string abilityName)
 		{
-			PrepareAction(abilityUsed, Enemy.Abilities[0]);
+			return Player.Abilities.Find(x => x.Name.Equals(abilityName, System.StringComparison.OrdinalIgnoreCase));
 		}
 
 		public void PrepareAction(PbAbility playerAbilityUsed, PbAbility enemyAbilityUsed)

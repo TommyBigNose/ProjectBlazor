@@ -57,9 +57,10 @@ namespace ProjectBlazor.Data.Game.General
 			return BATTLE_PARTICIPANT.PLAYER;
 		}
 
-		public void ResetHp()
+		public void Reset()
 		{
 			_hpCurrent = GetHpTotal();
+			_apCurrent = GetApTotal();
 		}
 
 		public bool IsDead()
@@ -77,6 +78,18 @@ namespace ProjectBlazor.Data.Game.General
 		{
 			if (_hpCurrent + heal >= GetHpTotal()) _hpCurrent = GetHpTotal();
 			else _hpCurrent += heal;
+		}
+
+		public void UseAp(int apUse)
+		{
+			if (_apCurrent - apUse <= 0) _apCurrent = 0;
+			else _apCurrent -= apUse;
+		}
+
+		public void RecoverAp(int apRecovered)
+		{
+			if (_apCurrent + apRecovered >= GetApTotal()) _apCurrent = GetApTotal();
+			else _apCurrent += apRecovered;
 		}
 
 		public void ApplyStatusEffects()

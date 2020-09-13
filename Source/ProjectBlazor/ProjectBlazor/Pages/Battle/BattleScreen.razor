@@ -21,10 +21,14 @@
         <td>
             HP |  @ProjectBlazorGame.Battle.Player.GetHpCurrent() / @ProjectBlazorGame.Battle.Player.GetHpTotal()
             <br /><br />
+            AP |  @ProjectBlazorGame.Battle.Player.GetApCurrent() / @ProjectBlazorGame.Battle.Player.GetApTotal()
+            <br /><br />
             <label>@playerResult</label>
         </td>
         <td>
             HP |  @ProjectBlazorGame.Battle.Enemy.GetHpCurrent() / @ProjectBlazorGame.Battle.Enemy.GetHpTotal()
+            <br /><br />
+            AP |  @ProjectBlazorGame.Battle.Enemy.GetApCurrent() / @ProjectBlazorGame.Battle.Enemy.GetApTotal()
             <br /><br />
             <label>@enemyResult</label>
         </td>
@@ -49,10 +53,14 @@
     {
         if (ProjectBlazorGame.Battle.GetBattleResult() == PbTypes.BATTLE_RESULT.ONGOING)
         {
-            ProjectBlazorGame.Battle.InputPlayerAction(abilityName);
+            if (ProjectBlazorGame.Battle.CanPlayerUseAbility(abilityName))
+            {
+                ProjectBlazorGame.Battle.InputPlayerAction(abilityName);
 
-            List<PbBattleActionResult> battleActionResults = ProjectBlazorGame.Battle.RunBattleTurn();
-            ShowBattleResults(battleActionResults);
+                List<PbBattleActionResult> battleActionResults = ProjectBlazorGame.Battle.RunBattleTurn();
+                ShowBattleResults(battleActionResults);
+            }
+
         }
 
         if (ProjectBlazorGame.Battle.GetBattleResult() != PbTypes.BATTLE_RESULT.ONGOING)

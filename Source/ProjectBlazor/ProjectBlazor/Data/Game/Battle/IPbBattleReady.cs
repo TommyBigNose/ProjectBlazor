@@ -5,10 +5,12 @@ namespace ProjectBlazor.Data.Game.Battle
 	public interface IPbBattleReady
 	{
 		BATTLE_PARTICIPANT GetBattleParticipant();
-		void ResetHp();
+		void Reset();
 		bool IsDead();
 		void TakeDamage(int damage);
 		void TakeHeal(int heal);
+		void UseAp(int apUse);
+		void RecoverAp(int apRecovered);
 		void ApplyStatusEffects();
 		int GetHpCurrent();
 		int GetHpTotal();

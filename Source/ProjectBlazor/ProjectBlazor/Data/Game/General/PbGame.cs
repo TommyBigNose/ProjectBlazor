@@ -141,8 +141,8 @@ namespace ProjectBlazor.Data.Game.General
 		{
 			PbEnemy enemy = GenerateEnemy(Player.Level);
 
-			Player.ResetHp();
-			enemy.ResetHp();
+			Player.Reset();
+			enemy.Reset();
 
 			PbBattle battle = new PbBattle(Player, enemy);
 

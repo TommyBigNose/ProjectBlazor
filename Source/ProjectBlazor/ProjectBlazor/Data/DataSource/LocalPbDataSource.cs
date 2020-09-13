@@ -85,7 +85,7 @@ namespace ProjectBlazor.Data.DataSource
 					Element = ELEMENT.NONE,
 					OutputStatAttribute = STAT_ATTRIBUTE.ATTACK,
 					AbilityActionType = ABILITY_ACTION_TYPE.DAMAGE,
-					Stats = new PbAbilityStats() { ApUse = 1, AttackRatio = 1, DefenseRatio = 1, MagicAttackRatio = 0, MagicDefenseRatio = 1, SpeedRatio = 1 }
+					Stats = new PbAbilityStats() { ApUse = 0, AttackRatio = 1, DefenseRatio = 1, MagicAttackRatio = 0, MagicDefenseRatio = 1, SpeedRatio = 1 }
 				},
 				new PbAbility
 				{
