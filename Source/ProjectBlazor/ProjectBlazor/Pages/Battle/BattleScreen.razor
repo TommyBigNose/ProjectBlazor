@@ -10,9 +10,18 @@
 
 <h3>BattleScreen</h3>
 
-<progress id="progPlayerAttack" value="@ProjectBlazorGame.Battle.TempActionBar" max="1000.0"></progress>
+
 
 <table class="table table-bordered table-sm">
+    <tr>
+        <td width="50%">
+            <progress id="progPlayer" value="@ProjectBlazorGame.Battle.PlayerActionBar" max="1000.0"></progress>
+        </td>
+        <td width="50%">
+            <progress id="progEnemy" value="@ProjectBlazorGame.Battle.EnemyActionBar" max="1000.0"></progress>
+        </td>
+    </tr>
+
     <tr>
         <td width="50%">
             Player
@@ -57,6 +66,7 @@
 
     protected override void OnInitialized()
     {
+        ProjectBlazorGame.Battle.StartBattle();
         battleTimer = new Timer();
         battleTimer.Interval = 100;
         battleTimer.Elapsed += TimerOnElapsed;

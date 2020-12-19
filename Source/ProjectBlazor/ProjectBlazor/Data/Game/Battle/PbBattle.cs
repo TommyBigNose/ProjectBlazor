@@ -16,7 +16,10 @@ namespace ProjectBlazor.Data.Game.Battle
 		public List<PbBattleActionResult> BattleActionResults { get; set; }
 
 		public Timer BattleTimer { get; set; }
-		public float TempActionBar { get; set; }
+		public double PlayerActionBar { get; set; }
+		public double EnemyActionBar { get; set; }
+		public PbAbility PlayerLastAbilityUsed { get; set; }
+		public PbAbility EnemyLastAbilityUsed { get; set; }
 
 		public PbBattle(PbPlayer player, PbEnemy enemy)
 		{
@@ -25,8 +28,7 @@ namespace ProjectBlazor.Data.Game.Battle
 			BattleActionQueue = new List<PbBattleAction>();
 			BattleActionResults = new List<PbBattleActionResult>();
 			BattleTimer = new Timer(PbConstants.Battle.BattleTimerInterval);
-			BattleTimer.Start();
-			BattleTimer.Elapsed += new ElapsedEventHandler(IncrementActionBar);
+			BattleTimer.Elapsed += new ElapsedEventHandler(IncrementActionBars);
 		}
 
 		public void ResetBattle()
@@ -35,14 +37,25 @@ namespace ProjectBlazor.Data.Game.Battle
 			Enemy.Reset();
 			BattleActionQueue = new List<PbBattleAction>();
 			BattleActionResults = new List<PbBattleActionResult>();
-			BattleTimer = new Timer(PbConstants.Battle.BattleTimerInterval);
+			BattleTimer.Stop();
+		}
+
+		public void StartBattle()
+		{
 			BattleTimer.Start();
 		}
 
-		private void IncrementActionBar(Object source, ElapsedEventArgs e)
+		private void IncrementActionBars(Object source, ElapsedEventArgs e)
 		{
-			TempActionBar += 10.0f;
-			if (TempActionBar > PbConstants.Battle.BattleTimerMax) TempActionBar = 0.0f;
+			if (PlayerLastAbilityUsed == null) PlayerLastAbilityUsed = Player.Abilities[0];
+			PlayerActionBar += (10.0f * PlayerLastAbilityUsed.Stats.SpeedRatio);
+			if (PlayerActionBar > PbConstants.Battle.BattleTimerMax) PlayerActionBar = 0.0f;
+			Player.RecoverAp(1);
+
+			if (EnemyLastAbilityUsed == null) EnemyLastAbilityUsed = Enemy.Abilities[0];
+			EnemyActionBar += (10.0f * EnemyLastAbilityUsed.Stats.SpeedRatio);
+			if (EnemyActionBar > PbConstants.Battle.BattleTimerMax) EnemyActionBar = 0.0f;
+			Enemy.RecoverAp(1);
 		}
 
 		public bool CanBattleContinue()
@@ -133,7 +146,8 @@ namespace ProjectBlazor.Data.Game.Battle
 			};
 			BattleActionQueue.Add(playerAction);
 			BattleActionQueue.Add(enemyAction);
-
+			PlayerLastAbilityUsed = playerAbilityUsed;
+			EnemyLastAbilityUsed = enemyAbilityUsed;
 
 			BattleActionQueue = BattleActionQueue.OrderByDescending(x => x.GetSourceSpeed()).ToList();
 		}
