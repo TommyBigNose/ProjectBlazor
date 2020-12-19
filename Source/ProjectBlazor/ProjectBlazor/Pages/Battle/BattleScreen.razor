@@ -1,12 +1,16 @@
 ﻿@page "/Battle/BattleScreen"
 
+@using System.Timers;
 @using ProjectBlazor.Data.Game
 @using ProjectBlazor.Data.Game.General
 @using ProjectBlazor.Data.Game.Battle
 @inject ProjectBlazor.Data.Game.General.PbGame ProjectBlazorGame
 @inject NavigationManager NavManager
 
+
 <h3>BattleScreen</h3>
+
+<progress id="progPlayerAttack" value="@ProjectBlazorGame.Battle.TempActionBar" max="1000.0"></progress>
 
 <table class="table table-bordered table-sm">
     <tr>
@@ -49,6 +53,26 @@
 </table>
 
 @code {
+    Timer battleTimer;
+
+    protected override void OnInitialized()
+    {
+        battleTimer = new Timer();
+        battleTimer.Interval = 100;
+        battleTimer.Elapsed += TimerOnElapsed;
+        battleTimer.Start();
+    }
+
+    private void TimerOnElapsed(object sender, ElapsedEventArgs e)
+    {
+        base.InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        battleTimer.Dispose();
+    }
+
     private void UseAbility(string abilityName)
     {
         if (ProjectBlazorGame.Battle.GetBattleResult() == PbTypes.BATTLE_RESULT.ONGOING)

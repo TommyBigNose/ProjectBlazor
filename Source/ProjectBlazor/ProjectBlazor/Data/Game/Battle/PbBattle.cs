@@ -4,6 +4,7 @@ using ProjectBlazor.Data.Game.General;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Timers;
 
 namespace ProjectBlazor.Data.Game.Battle
 {
@@ -14,12 +15,18 @@ namespace ProjectBlazor.Data.Game.Battle
 		public List<PbBattleAction> BattleActionQueue { get; set; }
 		public List<PbBattleActionResult> BattleActionResults { get; set; }
 
+		public Timer BattleTimer { get; set; }
+		public float TempActionBar { get; set; }
+
 		public PbBattle(PbPlayer player, PbEnemy enemy)
 		{
 			Player = player;
 			Enemy = enemy;
 			BattleActionQueue = new List<PbBattleAction>();
 			BattleActionResults = new List<PbBattleActionResult>();
+			BattleTimer = new Timer(PbConstants.Battle.BattleTimerInterval);
+			BattleTimer.Start();
+			BattleTimer.Elapsed += new ElapsedEventHandler(IncrementActionBar);
 		}
 
 		public void ResetBattle()
@@ -28,6 +35,14 @@ namespace ProjectBlazor.Data.Game.Battle
 			Enemy.Reset();
 			BattleActionQueue = new List<PbBattleAction>();
 			BattleActionResults = new List<PbBattleActionResult>();
+			BattleTimer = new Timer(PbConstants.Battle.BattleTimerInterval);
+			BattleTimer.Start();
+		}
+
+		private void IncrementActionBar(Object source, ElapsedEventArgs e)
+		{
+			TempActionBar += 10.0f;
+			if (TempActionBar > PbConstants.Battle.BattleTimerMax) TempActionBar = 0.0f;
 		}
 
 		public bool CanBattleContinue()
@@ -48,6 +63,7 @@ namespace ProjectBlazor.Data.Game.Battle
 
 			if (!CanBattleContinue())
 			{
+				BattleTimer.Stop();
 				if (Player.IsDead()) result = PbTypes.BATTLE_RESULT.LOSS;
 				else result = PbTypes.BATTLE_RESULT.VICTORY;
 			}
