@@ -76,6 +76,11 @@
     private void TimerOnElapsed(object sender, ElapsedEventArgs e)
     {
         base.InvokeAsync(StateHasChanged);
+
+        if (ProjectBlazorGame.Battle.GetBattleResult() != PbTypes.BATTLE_RESULT.ONGOING)
+        {
+            EndBattle();
+        }
     }
 
     public void Dispose()

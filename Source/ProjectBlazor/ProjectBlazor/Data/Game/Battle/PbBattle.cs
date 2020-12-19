@@ -49,13 +49,23 @@ namespace ProjectBlazor.Data.Game.Battle
 		{
 			if (PlayerLastAbilityUsed == null) PlayerLastAbilityUsed = Player.Abilities[0];
 			PlayerActionBar += (10.0f * PlayerLastAbilityUsed.Stats.SpeedRatio);
-			if (PlayerActionBar > PbConstants.Battle.BattleTimerMax) PlayerActionBar = 0.0f;
-			Player.RecoverAp(1);
+			if (PlayerActionBar > PbConstants.Battle.BattleTimerMax)
+			{
+				PlayerActionBar = 0.0f;
+				Player.RecoverAp(1);
+				PrepareAction(Player.Abilities[0], Enemy.Abilities[0]);
+				RunBattleTurn();
+			}
 
 			if (EnemyLastAbilityUsed == null) EnemyLastAbilityUsed = Enemy.Abilities[0];
 			EnemyActionBar += (10.0f * EnemyLastAbilityUsed.Stats.SpeedRatio);
-			if (EnemyActionBar > PbConstants.Battle.BattleTimerMax) EnemyActionBar = 0.0f;
-			Enemy.RecoverAp(1);
+			if (EnemyActionBar > PbConstants.Battle.BattleTimerMax)
+			{
+				EnemyActionBar = 0.0f;
+				Enemy.RecoverAp(1);
+				PrepareAction(Player.Abilities[0], Enemy.Abilities[0]);
+				RunBattleTurn();
+			}
 		}
 
 		public bool CanBattleContinue()
