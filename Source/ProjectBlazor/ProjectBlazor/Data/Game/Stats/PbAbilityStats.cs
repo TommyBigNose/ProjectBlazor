@@ -3,6 +3,8 @@
 	public class PbAbilityStats
 	{
 		public int ApUse { get; set; }
+		public int AbilityPower { get; set; }
+		public double ActionBarRatio { get; set; }
 		public double AttackRatio { get; set; }
 		public double DefenseRatio { get; set; }
 		public double MagicAttackRatio { get; set; }

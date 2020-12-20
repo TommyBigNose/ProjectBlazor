@@ -15,6 +15,7 @@ namespace ProjectBlazor.Data.Game.Battle
 		{
 			int output = 0;
 
+			output += SourceAbilityUsed.Stats.AbilityPower;
 			output += (int)Math.Ceiling(Source.GetAttackTotal() * SourceAbilityUsed.Stats.AttackRatio);
 			output += (int)Math.Ceiling(Source.GetMagicAttackTotal() * SourceAbilityUsed.Stats.MagicAttackRatio);
 

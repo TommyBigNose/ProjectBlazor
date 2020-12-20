@@ -85,7 +85,7 @@ namespace ProjectBlazor.Data.DataSource
 					Element = ELEMENT.NONE,
 					OutputStatAttribute = STAT_ATTRIBUTE.ATTACK,
 					AbilityActionType = ABILITY_ACTION_TYPE.DAMAGE,
-					Stats = new PbAbilityStats() { ApUse = 0, AttackRatio = 1, DefenseRatio = 1, MagicAttackRatio = 0, MagicDefenseRatio = 1, SpeedRatio = 1 }
+					Stats = new PbAbilityStats() { ApUse = 0, AbilityPower = 1, ActionBarRatio = 1.0, AttackRatio = 1, DefenseRatio = 1, MagicAttackRatio = 0, MagicDefenseRatio = 1, SpeedRatio = 1 }
 				},
 				new PbAbility
 				{
@@ -94,7 +94,7 @@ namespace ProjectBlazor.Data.DataSource
 					Element = ELEMENT.FIRE,
 					OutputStatAttribute = STAT_ATTRIBUTE.ATTACK_MAGIC,
 					AbilityActionType = ABILITY_ACTION_TYPE.DAMAGE,
-					Stats = new PbAbilityStats() { ApUse = 1, AttackRatio = 0, DefenseRatio = 1, MagicAttackRatio = 1.25, MagicDefenseRatio = 1, SpeedRatio = 0.8 }
+					Stats = new PbAbilityStats() { ApUse = 1, AbilityPower = 1, ActionBarRatio = 0.9, AttackRatio = 0, DefenseRatio = 1, MagicAttackRatio = 1.25, MagicDefenseRatio = 1, SpeedRatio = 0.8 }
 				},
 				new PbAbility
 				{
@@ -103,7 +103,7 @@ namespace ProjectBlazor.Data.DataSource
 					Element = ELEMENT.ICE,
 					OutputStatAttribute = STAT_ATTRIBUTE.ATTACK,
 					AbilityActionType = ABILITY_ACTION_TYPE.DAMAGE,
-					Stats = new PbAbilityStats() { ApUse = 1, AttackRatio = 1.25, DefenseRatio = 1.25, MagicAttackRatio = 1.25, MagicDefenseRatio = 1.25, SpeedRatio = 0.25 }
+					Stats = new PbAbilityStats() { ApUse = 1, AbilityPower = 1, ActionBarRatio = 0.75, AttackRatio = 1.25, DefenseRatio = 1.25, MagicAttackRatio = 1.25, MagicDefenseRatio = 1.25, SpeedRatio = 0.75 }
 				},
 				new PbAbility
 				{
@@ -112,7 +112,7 @@ namespace ProjectBlazor.Data.DataSource
 					Element = ELEMENT.LIGHTNING,
 					OutputStatAttribute = STAT_ATTRIBUTE.ATTACK_MAGIC,
 					AbilityActionType = ABILITY_ACTION_TYPE.DAMAGE,
-					Stats = new PbAbilityStats() { ApUse = 1, AttackRatio = 0.33, DefenseRatio = 1, MagicAttackRatio = 0.33, MagicDefenseRatio = 1, SpeedRatio = 3 }
+					Stats = new PbAbilityStats() { ApUse = 1, AbilityPower = 1, ActionBarRatio = 0.33, AttackRatio = 0.33, DefenseRatio = 1, MagicAttackRatio = 0.33, MagicDefenseRatio = 1, SpeedRatio = 3 }
 				}
 			};
 

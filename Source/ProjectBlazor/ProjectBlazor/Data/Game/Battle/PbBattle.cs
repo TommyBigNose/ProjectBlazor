@@ -18,6 +18,8 @@ namespace ProjectBlazor.Data.Game.Battle
 		public Timer BattleTimer { get; set; }
 		public double PlayerActionBar { get; set; }
 		public double EnemyActionBar { get; set; }
+		public List<PbAbilityActionBar> PlayerAbilityActionBars { get; set; }
+		public List<PbAbilityActionBar> EnemyAbilityActionBars { get; set; }
 		public PbAbility PlayerLastAbilityUsed { get; set; }
 		public PbAbility EnemyLastAbilityUsed { get; set; }
 
@@ -29,6 +31,17 @@ namespace ProjectBlazor.Data.Game.Battle
 			BattleActionResults = new List<PbBattleActionResult>();
 			BattleTimer = new Timer(PbConstants.Battle.BattleTimerInterval);
 			BattleTimer.Elapsed += new ElapsedEventHandler(IncrementActionBars);
+
+			PlayerAbilityActionBars = new List<PbAbilityActionBar>();
+			EnemyAbilityActionBars = new List<PbAbilityActionBar>();
+			foreach (PbAbility ability in Player.Abilities)
+			{
+				PlayerAbilityActionBars.Add(new PbAbilityActionBar() { Ability = ability, ActionBar = 0.0 });
+			}
+			foreach (PbAbility ability in Enemy.Abilities)
+			{
+				EnemyAbilityActionBars.Add(new PbAbilityActionBar() { Ability = ability, ActionBar = 0.0 });
+			}
 		}
 
 		public void ResetBattle()
@@ -48,23 +61,32 @@ namespace ProjectBlazor.Data.Game.Battle
 		private void IncrementActionBars(Object source, ElapsedEventArgs e)
 		{
 			if (PlayerLastAbilityUsed == null) PlayerLastAbilityUsed = Player.Abilities[0];
-			PlayerActionBar += (10.0f * PlayerLastAbilityUsed.Stats.SpeedRatio);
+			PlayerActionBar += (PbConstants.Battle.ActionBarIncrementBase * PlayerLastAbilityUsed.Stats.SpeedRatio);
 			if (PlayerActionBar > PbConstants.Battle.BattleTimerMax)
 			{
-				PlayerActionBar = 0.0f;
+				PlayerActionBar = 0.0;
 				Player.RecoverAp(1);
 				PrepareAction(Player.Abilities[0], Enemy.Abilities[0]);
 				RunBattleTurn();
 			}
 
 			if (EnemyLastAbilityUsed == null) EnemyLastAbilityUsed = Enemy.Abilities[0];
-			EnemyActionBar += (10.0f * EnemyLastAbilityUsed.Stats.SpeedRatio);
+			EnemyActionBar += (PbConstants.Battle.ActionBarIncrementBase * EnemyLastAbilityUsed.Stats.SpeedRatio);
 			if (EnemyActionBar > PbConstants.Battle.BattleTimerMax)
 			{
-				EnemyActionBar = 0.0f;
+				EnemyActionBar = 0.0;
 				Enemy.RecoverAp(1);
 				PrepareAction(Player.Abilities[0], Enemy.Abilities[0]);
 				RunBattleTurn();
+			}
+			IncrementAbilityActionBars(source, e);
+		}
+
+		private void IncrementAbilityActionBars(Object source, ElapsedEventArgs e)
+		{
+			foreach (PbAbilityActionBar actionBar in PlayerAbilityActionBars)
+			{
+				if (!actionBar.IsReady()) actionBar.IncrementActionBar(PbConstants.Battle.ActionBarIncrementBase * actionBar.Ability.Stats.ActionBarRatio);
 			}
 		}
 
