@@ -62,21 +62,23 @@ namespace ProjectBlazor.Data.Game.Battle
 		{
 			if (PlayerLastAbilityUsed == null) PlayerLastAbilityUsed = Player.Abilities[0];
 			PlayerActionBar += (PbConstants.Battle.ActionBarIncrementBase * PlayerLastAbilityUsed.Stats.SpeedRatio);
-			if (PlayerActionBar > PbConstants.Battle.BattleTimerMax)
+			if (PlayerActionBar >= PbConstants.Battle.BattleTimerMax)
 			{
 				PlayerActionBar = 0.0;
 				Player.RecoverAp(1);
-				PrepareAction(Player.Abilities[0], Enemy.Abilities[0]);
+				PrepareAction(Player, Enemy, Player.Abilities[0], EnemyLastAbilityUsed);
 				RunBattleTurn();
 			}
 
 			if (EnemyLastAbilityUsed == null) EnemyLastAbilityUsed = Enemy.Abilities[0];
 			EnemyActionBar += (PbConstants.Battle.ActionBarIncrementBase * EnemyLastAbilityUsed.Stats.SpeedRatio);
-			if (EnemyActionBar > PbConstants.Battle.BattleTimerMax)
+			if (EnemyActionBar >= PbConstants.Battle.BattleTimerMax)
 			{
 				EnemyActionBar = 0.0;
 				Enemy.RecoverAp(1);
-				PrepareAction(Player.Abilities[0], Enemy.Abilities[0]);
+				PbAbility enemyAbility = Enemy.Abilities[0];
+				EnemyLastAbilityUsed = enemyAbility;
+				PrepareAction(Enemy, Player, PlayerLastAbilityUsed, enemyAbility);
 				RunBattleTurn();
 			}
 			IncrementAbilityActionBars(source, e);
@@ -86,7 +88,7 @@ namespace ProjectBlazor.Data.Game.Battle
 		{
 			foreach (PbAbilityActionBar actionBar in PlayerAbilityActionBars)
 			{
-				if (!actionBar.IsReady()) actionBar.IncrementActionBar(PbConstants.Battle.ActionBarIncrementBase * actionBar.Ability.Stats.ActionBarRatio);
+				if (!actionBar.IsReady()) actionBar.IncrementActionBar(PbConstants.Battle.ActionBarIncrementBase * actionBar.Ability.Stats.ActionBarRatio + 10);
 			}
 		}
 
@@ -100,6 +102,13 @@ namespace ProjectBlazor.Data.Game.Battle
 			PbAbility ability = GetAbilityByName(abilityName);
 
 			return (ability.Stats.ApUse <= Player.GetApCurrent());
+		}
+
+		public bool IsAbilityReady(string abilityName)
+		{
+			PbAbilityActionBar abilityActionBar = GetAbilityBarByName(abilityName);
+
+			return abilityActionBar.IsReady();
 		}
 
 		public PbTypes.BATTLE_RESULT GetBattleResult()
@@ -152,7 +161,9 @@ namespace ProjectBlazor.Data.Game.Battle
 		public void InputPlayerAction(string abilityName)
 		{
 			PbAbility ability = GetAbilityByName(abilityName);
-			PrepareAction(ability, Enemy.Abilities[0]);
+			PlayerLastAbilityUsed = ability;
+			GetAbilityBarByName(ability.Name).ResetActionBar();
+			PrepareAction(Player, Enemy, ability, EnemyLastAbilityUsed);
 		}
 
 		public PbAbility GetAbilityByName(string abilityName)
@@ -160,26 +171,22 @@ namespace ProjectBlazor.Data.Game.Battle
 			return Player.Abilities.Find(x => x.Name.Equals(abilityName, System.StringComparison.OrdinalIgnoreCase));
 		}
 
-		public void PrepareAction(PbAbility playerAbilityUsed, PbAbility enemyAbilityUsed)
+		public PbAbilityActionBar GetAbilityBarByName(string abilityName)
 		{
-			PbBattleAction playerAction = new PbBattleAction()
+			return PlayerAbilityActionBars.Find(x => x.Ability.Name.Equals(abilityName, System.StringComparison.OrdinalIgnoreCase));
+		}
+
+		public void PrepareAction(IPbBattleReady source, IPbBattleReady target, PbAbility sourceAbilityUsed, PbAbility targetAbilityUsed)
+		{
+
+			PbBattleAction action = new PbBattleAction()
 			{
-				Source = Player,
-				Target = Enemy,
-				SourceAbilityUsed = playerAbilityUsed,
-				TargetAbilityUsed = enemyAbilityUsed
+				Source = source,
+				Target = target,
+				SourceAbilityUsed = sourceAbilityUsed,
+				TargetAbilityUsed = targetAbilityUsed
 			};
-			PbBattleAction enemyAction = new PbBattleAction()
-			{
-				Source = Enemy,
-				Target = Player,
-				SourceAbilityUsed = enemyAbilityUsed,
-				TargetAbilityUsed = playerAbilityUsed
-			};
-			BattleActionQueue.Add(playerAction);
-			BattleActionQueue.Add(enemyAction);
-			PlayerLastAbilityUsed = playerAbilityUsed;
-			EnemyLastAbilityUsed = enemyAbilityUsed;
+			BattleActionQueue.Add(action);
 
 			BattleActionQueue = BattleActionQueue.OrderByDescending(x => x.GetSourceSpeed()).ToList();
 		}

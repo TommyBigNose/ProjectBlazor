@@ -1,5 +1,4 @@
-﻿
-@inject ProjectBlazor.Data.Game.General.PbGame ProjectBlazorGame
+﻿@inject ProjectBlazor.Data.Game.General.PbGame ProjectBlazorGame
 
 <h3>AbilityButtons</h3>
 
@@ -10,7 +9,7 @@
         {
             <tr>
                 <td>
-                    <button class="btn btn-primary" @onclick="@(e => UseAbilityFunction.InvokeAsync(abilityActionBar.Ability.Name))">
+                    <button class="btn btn-primary" disabled="@DisableAbility(abilityActionBar)" @onclick="@(e => UseAbilityFunction.InvokeAsync(abilityActionBar.Ability.Name))">
                         @abilityActionBar.Ability.Name
                     </button>
                 </td>
@@ -32,4 +31,8 @@
     [Parameter]
     public EventCallback<string> UseAbilityFunction { get; set; }
 
+    public bool DisableAbility(ProjectBlazor.Data.Game.Battle.PbAbilityActionBar abilityActionBar)
+    {
+        return !abilityActionBar.IsReady();
+    }
 }

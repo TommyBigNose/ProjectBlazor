@@ -92,7 +92,7 @@
     {
         if (ProjectBlazorGame.Battle.GetBattleResult() == PbTypes.BATTLE_RESULT.ONGOING)
         {
-            if (ProjectBlazorGame.Battle.CanPlayerUseAbility(abilityName))
+            if (ProjectBlazorGame.Battle.CanPlayerUseAbility(abilityName) && ProjectBlazorGame.Battle.IsAbilityReady(abilityName))
             {
                 ProjectBlazorGame.Battle.InputPlayerAction(abilityName);
 

@@ -131,7 +131,7 @@ namespace ProjectBlazor.Data.Game.General
 				Credits = 10 * level,
 				Exp = 10 * level,
 				Abilities = Abilities,
-				Stats = new PbStats() { Hp = 10 + (3 * level), Ap = 5 + (1 * level), Attack = 1 + (level), Defense = 1 + (level), MagicAttack = 1 + (level), MagicDefense = 1 + (level), Speed = 1 + (level), ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+				Stats = new PbStats() { Hp = 25 + (3 * level), Ap = 5 + (1 * level), Attack = 1 + (level), Defense = 1 + (level), MagicAttack = 1 + (level), MagicDefense = 1 + (level), Speed = 1 + (level), ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
 			};
 
 			return enemy;

@@ -18,5 +18,10 @@ namespace ProjectBlazor.Data.Game.Battle
 			ActionBar += increment;
 			if (ActionBar >= PbConstants.Battle.BattleTimerMax) ActionBar = PbConstants.Battle.BattleTimerMax;
 		}
+
+		public void ResetActionBar()
+		{
+			ActionBar = 0.0;
+		}
 	}
 }
