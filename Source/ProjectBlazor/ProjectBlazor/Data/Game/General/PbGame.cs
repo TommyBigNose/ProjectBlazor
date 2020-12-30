@@ -110,7 +110,7 @@ namespace ProjectBlazor.Data.Game.General
 				Credits = 100,
 				Exp = 0,
 				LevelPoints = 5,
-				Stats = new PbStats() { Hp = 10, Ap = 5, Attack = 1, Defense = 1, MagicAttack = 1, MagicDefense = 1, Speed = 1, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 },
+				Stats = new PbStats() { Hp = 10, Ap = 5, Attack = 1, Defense = 1, MagicAttack = 1, MagicDefense = 1, Speed = 1, AffinityFire = 0, AffinityIce = 0, AffinityLightning = 0, AffinityEarth = 0, AffinityLight = 0, AffinityDark = 0 },
 				EquipmentUnlocked = Equipment,
 				Abilities = Abilities,
 				Race = Races.First(x => x.Name.Equals("Human", StringComparison.OrdinalIgnoreCase)),
@@ -131,7 +131,7 @@ namespace ProjectBlazor.Data.Game.General
 				Credits = 10 * level,
 				Exp = 10 * level,
 				Abilities = Abilities,
-				Stats = new PbStats() { Hp = 25 + (3 * level), Ap = 5 + (1 * level), Attack = 1 + (level), Defense = 1 + (level), MagicAttack = 1 + (level), MagicDefense = 1 + (level), Speed = 1 + (level), ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+				Stats = new PbStats() { Hp = 25 + (3 * level), Ap = 5 + (1 * level), Attack = 1 + (level), Defense = 1 + (level), MagicAttack = 1 + (level), MagicDefense = 1 + (level), Speed = 1 + (level), AffinityFire = 0, AffinityIce = 0, AffinityLightning = 0, AffinityEarth = 0, AffinityLight = 0, AffinityDark = 0 }
 			};
 
 			return enemy;

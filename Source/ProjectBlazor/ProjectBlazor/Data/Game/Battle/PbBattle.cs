@@ -78,7 +78,7 @@ namespace ProjectBlazor.Data.Game.Battle
 				Enemy.RecoverAp(1);
 				PbAbility enemyAbility = Enemy.Abilities[0];
 				EnemyLastAbilityUsed = enemyAbility;
-				PrepareAction(Enemy, Player, PlayerLastAbilityUsed, enemyAbility);
+				PrepareAction(Enemy, Player, enemyAbility, PlayerLastAbilityUsed);
 				RunBattleTurn();
 			}
 			IncrementAbilityActionBars(source, e);
@@ -88,7 +88,7 @@ namespace ProjectBlazor.Data.Game.Battle
 		{
 			foreach (PbAbilityActionBar actionBar in PlayerAbilityActionBars)
 			{
-				if (!actionBar.IsReady()) actionBar.IncrementActionBar(PbConstants.Battle.ActionBarIncrementBase * actionBar.Ability.Stats.ActionBarRatio + 10);
+				if (!actionBar.IsReady()) actionBar.IncrementActionBar(PbConstants.Battle.ActionBarIncrementBase * actionBar.Ability.Stats.ActionBarRatio);
 			}
 		}
 

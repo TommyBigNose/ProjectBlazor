@@ -111,46 +111,46 @@ namespace ProjectBlazor.Data.Game.General
 			return Stats.Speed;
 		}
 
-		public int GetResistFireTotal()
+		public int GetAffinityFireTotal()
 		{
-			return Stats.ResistFire;
+			return Stats.AffinityFire;
 		}
 
-		public int GetResistIceTotal()
+		public int GetAffinityIceTotal()
 		{
-			return Stats.ResistIce;
+			return Stats.AffinityIce;
 		}
 
-		public int GetResistLightningTotal()
+		public int GetAffinityLightningTotal()
 		{
-			return Stats.ResistLightning;
+			return Stats.AffinityLightning;
 		}
 
-		public int GetResistEarthTotal()
+		public int GetAffinityEarthTotal()
 		{
-			return Stats.ResistEarth;
+			return Stats.AffinityEarth;
 		}
 
-		public int GetResistLightTotal()
+		public int GetAffinityLightTotal()
 		{
-			return Stats.ResistLight;
+			return Stats.AffinityLight;
 		}
 
-		public int GetResistDarkTotal()
+		public int GetAffinityDarkTotal()
 		{
-			return Stats.ResistDark;
+			return Stats.AffinityDark;
 		}
 
 		public double GetAppropriateResistance(ELEMENT element)
 		{
 			double resistance = 0.0;
 
-			if (element == ELEMENT.FIRE) resistance = (double)GetResistFireTotal() / 100.00;
-			else if (element == ELEMENT.ICE) resistance = (double)GetResistIceTotal() / 100.00;
-			else if (element == ELEMENT.LIGHTNING) resistance = (double)GetResistLightningTotal() / 100.00;
-			else if (element == ELEMENT.EARTH) resistance = (double)GetResistEarthTotal() / 100.00;
-			else if (element == ELEMENT.LIGHT) resistance = (double)GetResistLightTotal() / 100.00;
-			else if (element == ELEMENT.DARK) resistance = (double)GetResistDarkTotal() / 100.00;
+			if (element == ELEMENT.FIRE) resistance = (double)GetAffinityFireTotal() / 100.00;
+			else if (element == ELEMENT.ICE) resistance = (double)GetAffinityIceTotal() / 100.00;
+			else if (element == ELEMENT.LIGHTNING) resistance = (double)GetAffinityLightningTotal() / 100.00;
+			else if (element == ELEMENT.EARTH) resistance = (double)GetAffinityEarthTotal() / 100.00;
+			else if (element == ELEMENT.LIGHT) resistance = (double)GetAffinityLightTotal() / 100.00;
+			else if (element == ELEMENT.DARK) resistance = (double)GetAffinityDarkTotal() / 100.00;
 
 			return resistance;
 		}

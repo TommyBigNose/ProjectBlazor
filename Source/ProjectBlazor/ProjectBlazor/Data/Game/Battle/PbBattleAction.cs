@@ -16,8 +16,16 @@ namespace ProjectBlazor.Data.Game.Battle
 			int output = 0;
 
 			output += SourceAbilityUsed.Stats.AbilityPower;
+
+			//if (SourceAbilityUsed.OutputStatAttribute == General.PbTypes.STAT_ATTRIBUTE.ATTACK)
+			//{
 			output += (int)Math.Ceiling(Source.GetAttackTotal() * SourceAbilityUsed.Stats.AttackRatio);
+			//}
+
+			//if (SourceAbilityUsed.OutputStatAttribute == General.PbTypes.STAT_ATTRIBUTE.ATTACK_MAGIC)
+			//{
 			output += (int)Math.Ceiling(Source.GetMagicAttackTotal() * SourceAbilityUsed.Stats.MagicAttackRatio);
+			//}
 
 			return output;
 		}
