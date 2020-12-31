@@ -68,6 +68,11 @@ namespace ProjectBlazor.Data.Game.General
 			return _hpCurrent <= 0;
 		}
 
+		public List<PbAbility> GetAbilities()
+		{
+			return Abilities;
+		}
+
 		public void TakeDamage(int damage)
 		{
 			if (_hpCurrent - damage <= 0) _hpCurrent = 0;
@@ -249,6 +254,16 @@ namespace ProjectBlazor.Data.Game.General
 			else if (element == ELEMENT.DARK) resistance = (double)GetAffinityDarkTotal() / 100.00;
 
 			return resistance;
+		}
+
+		public int GetExp()
+		{
+			return Exp;
+		}
+
+		public int GetCredits()
+		{
+			return Credits;
 		}
 	}
 }
