@@ -1,19 +1,38 @@
-﻿<h3>AbilityButtons</h3>
+﻿@inject ProjectBlazor.Data.Game.General.PbGame ProjectBlazorGame
+
+<h3>AbilityButtons</h3>
 
 <div>
-    @foreach (ProjectBlazor.Data.Game.Ability.PbAbility ability in Abilities)
-    {
-        <button class="btn btn-primary" @onclick="@(e => UseAbilityFunction.InvokeAsync(ability.Name))">
-            @ability.Name
-        </button>
-    }
+    <table class="table table-bordered table-sm">
+
+        @foreach (ProjectBlazor.Data.Game.Battle.PbAbilityActionBar abilityActionBar in AbilityActionBars)
+        {
+            <tr>
+                <td>
+                    <button class="btn btn-primary" disabled="@DisableAbility(abilityActionBar)" @onclick="@(e => UseAbilityFunction.InvokeAsync(abilityActionBar.Ability.Name))">
+                        @abilityActionBar.Ability.Name
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <progress id="progAbility" value="@abilityActionBar.ActionBar" max="1000.0"></progress>
+                </td>
+            </tr>
+        }
+
+    </table>
 </div>
 
 @code {
     [Parameter]
-    public List<ProjectBlazor.Data.Game.Ability.PbAbility> Abilities { get; set; }
+    public List<ProjectBlazor.Data.Game.Battle.PbAbilityActionBar> AbilityActionBars { get; set; }
 
     [Parameter]
     public EventCallback<string> UseAbilityFunction { get; set; }
 
+    public bool DisableAbility(ProjectBlazor.Data.Game.Battle.PbAbilityActionBar abilityActionBar)
+    {
+        return !abilityActionBar.IsReady();
+    }
 }

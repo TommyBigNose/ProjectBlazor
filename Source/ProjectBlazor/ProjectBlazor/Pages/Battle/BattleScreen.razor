@@ -1,14 +1,27 @@
 ﻿@page "/Battle/BattleScreen"
 
+@using System.Timers;
 @using ProjectBlazor.Data.Game
 @using ProjectBlazor.Data.Game.General
 @using ProjectBlazor.Data.Game.Battle
 @inject ProjectBlazor.Data.Game.General.PbGame ProjectBlazorGame
 @inject NavigationManager NavManager
 
+
 <h3>BattleScreen</h3>
 
+
+
 <table class="table table-bordered table-sm">
+    <tr>
+        <td width="50%">
+            <progress id="progPlayer" value="@ProjectBlazorGame.Battle.PlayerActionBar" max="1000.0"></progress>
+        </td>
+        <td width="50%">
+            <progress id="progEnemy" value="@ProjectBlazorGame.Battle.EnemyActionBar" max="1000.0"></progress>
+        </td>
+    </tr>
+
     <tr>
         <td width="50%">
             Player
@@ -35,7 +48,7 @@
     </tr>
     <tr>
         <td>
-            <ProjectBlazor.Pages.Battle.AbilityButtons Abilities="@ProjectBlazorGame.Battle.Player.Abilities" UseAbilityFunction="@UseAbility" />
+            <ProjectBlazor.Pages.Battle.AbilityButtons AbilityActionBars="@ProjectBlazorGame.Battle.PlayerAbilityActionBars" UseAbilityFunction="@UseAbility" />
         </td>
         <td>
         </td>
@@ -49,11 +62,37 @@
 </table>
 
 @code {
+    Timer battleTimer;
+
+    protected override void OnInitialized()
+    {
+        ProjectBlazorGame.Battle.StartBattle();
+        battleTimer = new Timer();
+        battleTimer.Interval = 100;
+        battleTimer.Elapsed += TimerOnElapsed;
+        battleTimer.Start();
+    }
+
+    private void TimerOnElapsed(object sender, ElapsedEventArgs e)
+    {
+        base.InvokeAsync(StateHasChanged);
+
+        if (ProjectBlazorGame.Battle.GetBattleResult() != PbTypes.BATTLE_RESULT.ONGOING)
+        {
+            EndBattle();
+        }
+    }
+
+    public void Dispose()
+    {
+        battleTimer.Dispose();
+    }
+
     private void UseAbility(string abilityName)
     {
         if (ProjectBlazorGame.Battle.GetBattleResult() == PbTypes.BATTLE_RESULT.ONGOING)
         {
-            if (ProjectBlazorGame.Battle.CanPlayerUseAbility(abilityName))
+            if (ProjectBlazorGame.Battle.CanPlayerUseAbility(abilityName) && ProjectBlazorGame.Battle.IsAbilityReady(abilityName))
             {
                 ProjectBlazorGame.Battle.InputPlayerAction(abilityName);
 

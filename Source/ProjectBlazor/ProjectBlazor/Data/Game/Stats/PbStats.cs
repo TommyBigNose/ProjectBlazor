@@ -10,11 +10,11 @@
 		public int MagicDefense { get; set; }
 		public int Speed { get; set; }
 
-		public int ResistFire { get; set; }
-		public int ResistIce { get; set; }
-		public int ResistLightning { get; set; }
-		public int ResistEarth { get; set; }
-		public int ResistLight { get; set; }
-		public int ResistDark { get; set; }
+		public int AffinityFire { get; set; }
+		public int AffinityIce { get; set; }
+		public int AffinityLightning { get; set; }
+		public int AffinityEarth { get; set; }
+		public int AffinityLight { get; set; }
+		public int AffinityDark { get; set; }
 	}
 }

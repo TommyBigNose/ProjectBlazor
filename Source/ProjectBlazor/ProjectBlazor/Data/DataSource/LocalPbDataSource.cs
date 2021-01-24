@@ -19,7 +19,7 @@ namespace ProjectBlazor.Data.DataSource
 					Description = "A simple, mass produced, energy blade given out to new recruits",
 					Value = 10,
 					EquipmentType = PbTypes.EQUIPMENT_TYPE.WEAPON,
-					Stats = new PbStats() { Hp = 0, Ap = 0, Attack = 2, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+					Stats = new PbStats() { Hp = 0, Ap = 0, Attack = 2, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 0, AffinityFire = 0, AffinityIce = 0, AffinityLightning = 0, AffinityEarth = 0, AffinityLight = 0, AffinityDark = 0 }
 				},
 				new PbEquipment
 				{
@@ -27,7 +27,7 @@ namespace ProjectBlazor.Data.DataSource
 					Description = "A simple, mass produced, energy handgun given out to new recruits",
 					Value = 10,
 					EquipmentType = PbTypes.EQUIPMENT_TYPE.WEAPON,
-					Stats = new PbStats() { Hp = 0, Ap = 0, Attack = 1, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 1, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+					Stats = new PbStats() { Hp = 0, Ap = 0, Attack = 1, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 1, AffinityFire = 0, AffinityIce = 0, AffinityLightning = 0, AffinityEarth = 0, AffinityLight = 0, AffinityDark = 0 }
 				},
 				new PbEquipment
 				{
@@ -35,7 +35,7 @@ namespace ProjectBlazor.Data.DataSource
 					Description = "A simple, mass produced, energy wand given out to new recruits",
 					Value = 10,
 					EquipmentType = PbTypes.EQUIPMENT_TYPE.WEAPON,
-					Stats = new PbStats() { Hp = 0, Ap = 0, Attack = 0, Defense = 0, MagicAttack = 2, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0 }
+					Stats = new PbStats() { Hp = 0, Ap = 0, Attack = 0, Defense = 0, MagicAttack = 2, MagicDefense = 0, Speed = 0, AffinityFire = 0, AffinityIce = 0, AffinityLightning = 0, AffinityEarth = 0, AffinityLight = 0, AffinityDark = 0 }
 				},
 				new PbEquipment
 				{
@@ -43,7 +43,7 @@ namespace ProjectBlazor.Data.DataSource
 					Description = "A simple, mass produced, armor given out to new recruits",
 					Value = 10,
 					EquipmentType = PbTypes.EQUIPMENT_TYPE.ARMOR,
-					Stats = new PbStats() { Hp = 0, Ap = 0, Attack = 0, Defense = 1, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0  }
+					Stats = new PbStats() { Hp = 0, Ap = 0, Attack = 0, Defense = 1, MagicAttack = 0, MagicDefense = 0, Speed = 0, AffinityFire = 0, AffinityIce = 0, AffinityLightning = 0, AffinityEarth = 0, AffinityLight = 0, AffinityDark = 0  }
 				},
 				new PbEquipment
 				{
@@ -51,7 +51,7 @@ namespace ProjectBlazor.Data.DataSource
 					Description = "A tough, mass produced, armor given out to new recruits",
 					Value = 20,
 					EquipmentType = PbTypes.EQUIPMENT_TYPE.ARMOR,
-					Stats = new PbStats() { Hp = 0, Ap = 0, Attack = 0, Defense = 2, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = 0, ResistDark = 0  }
+					Stats = new PbStats() { Hp = 0, Ap = 0, Attack = 0, Defense = 2, MagicAttack = 0, MagicDefense = 0, Speed = 0, AffinityFire = 0, AffinityIce = 0, AffinityLightning = 0, AffinityEarth = 0, AffinityLight = 0, AffinityDark = 0  }
 				},
 				new PbEquipment
 				{
@@ -59,7 +59,7 @@ namespace ProjectBlazor.Data.DataSource
 					Description = "A simple, mass produced, barrier given out to new recruits",
 					Value = 10,
 					EquipmentType = PbTypes.EQUIPMENT_TYPE.BARRIER,
-					Stats = new PbStats() { Hp = 0, Ap = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 1, Speed = 0, ResistFire = 5, ResistIce = 5, ResistLightning = 5, ResistEarth = 5, ResistLight = 0, ResistDark = 0  }
+					Stats = new PbStats() { Hp = 0, Ap = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 1, Speed = 0, AffinityFire = 5, AffinityIce = 5, AffinityLightning = 5, AffinityEarth = 5, AffinityLight = 0, AffinityDark = 0  }
 				},
 				new PbEquipment
 				{
@@ -67,7 +67,7 @@ namespace ProjectBlazor.Data.DataSource
 					Description = "A tough, mass produced, barrier given out to new recruits",
 					Value = 20,
 					EquipmentType = PbTypes.EQUIPMENT_TYPE.BARRIER,
-					Stats = new PbStats() { Hp = 0, Ap = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 2, Speed = 0, ResistFire = 5, ResistIce = 5, ResistLightning = 5, ResistEarth = 5, ResistLight = 0, ResistDark = 0  }
+					Stats = new PbStats() { Hp = 0, Ap = 0, Attack = 0, Defense = 0, MagicAttack = 0, MagicDefense = 2, Speed = 0, AffinityFire = 5, AffinityIce = 5, AffinityLightning = 5, AffinityEarth = 5, AffinityLight = 0, AffinityDark = 0  }
 				}
 			};
 
@@ -85,7 +85,7 @@ namespace ProjectBlazor.Data.DataSource
 					Element = ELEMENT.NONE,
 					OutputStatAttribute = STAT_ATTRIBUTE.ATTACK,
 					AbilityActionType = ABILITY_ACTION_TYPE.DAMAGE,
-					Stats = new PbAbilityStats() { ApUse = 0, AttackRatio = 1, DefenseRatio = 1, MagicAttackRatio = 0, MagicDefenseRatio = 1, SpeedRatio = 1 }
+					Stats = new PbAbilityStats() { ApUse = 0, AbilityPower = 1, ActionBarRatio = 1.0, AttackRatio = 1.0, DefenseRatio = 1.0, MagicAttackRatio = 0.0, MagicDefenseRatio = 1.0, SpeedRatio = 1.0 }
 				},
 				new PbAbility
 				{
@@ -94,7 +94,7 @@ namespace ProjectBlazor.Data.DataSource
 					Element = ELEMENT.FIRE,
 					OutputStatAttribute = STAT_ATTRIBUTE.ATTACK_MAGIC,
 					AbilityActionType = ABILITY_ACTION_TYPE.DAMAGE,
-					Stats = new PbAbilityStats() { ApUse = 1, AttackRatio = 0, DefenseRatio = 1, MagicAttackRatio = 1.25, MagicDefenseRatio = 1, SpeedRatio = 0.8 }
+					Stats = new PbAbilityStats() { ApUse = 1, AbilityPower = 3, ActionBarRatio = 0.9, AttackRatio = 0.33, DefenseRatio = 1.0, MagicAttackRatio = 1.25, MagicDefenseRatio = 1.0, SpeedRatio = 0.8 }
 				},
 				new PbAbility
 				{
@@ -103,7 +103,7 @@ namespace ProjectBlazor.Data.DataSource
 					Element = ELEMENT.ICE,
 					OutputStatAttribute = STAT_ATTRIBUTE.ATTACK,
 					AbilityActionType = ABILITY_ACTION_TYPE.DAMAGE,
-					Stats = new PbAbilityStats() { ApUse = 1, AttackRatio = 1.25, DefenseRatio = 1.25, MagicAttackRatio = 1.25, MagicDefenseRatio = 1.25, SpeedRatio = 0.25 }
+					Stats = new PbAbilityStats() { ApUse = 1, AbilityPower = 1, ActionBarRatio = 0.75, AttackRatio = 1.25, DefenseRatio = 1.25, MagicAttackRatio = 1.25, MagicDefenseRatio = 1.25, SpeedRatio = 0.75 }
 				},
 				new PbAbility
 				{
@@ -112,7 +112,7 @@ namespace ProjectBlazor.Data.DataSource
 					Element = ELEMENT.LIGHTNING,
 					OutputStatAttribute = STAT_ATTRIBUTE.ATTACK_MAGIC,
 					AbilityActionType = ABILITY_ACTION_TYPE.DAMAGE,
-					Stats = new PbAbilityStats() { ApUse = 1, AttackRatio = 0.33, DefenseRatio = 1, MagicAttackRatio = 0.33, MagicDefenseRatio = 1, SpeedRatio = 3 }
+					Stats = new PbAbilityStats() { ApUse = 1, AbilityPower = 2, ActionBarRatio = 0.33, AttackRatio = 0.33, DefenseRatio = 1.0, MagicAttackRatio = 0.33, MagicDefenseRatio = 1, SpeedRatio = 3.0 }
 				}
 			};
 
@@ -127,19 +127,19 @@ namespace ProjectBlazor.Data.DataSource
 				{
 					Name = "Human",
 					Description = "Precursor species.",
-					Stats = new PbStats() {  Hp = 0, Ap = 0, Attack = 1, Defense = 0, MagicAttack = 1, MagicDefense = 0, Speed = 0, ResistFire = -10, ResistIce = 10, ResistLightning = 0, ResistEarth = 0, ResistLight = 10, ResistDark = -10 }
+					Stats = new PbStats() {  Hp = 0, Ap = 0, Attack = 1, Defense = 0, MagicAttack = 1, MagicDefense = 0, Speed = 0, AffinityFire = -10, AffinityIce = 10, AffinityLightning = 0, AffinityEarth = 0, AffinityLight = 10, AffinityDark = -10 }
 				},
 				new PbRace
 				{
 					Name = "Cyborg",
 					Description = "When tech becomes too integrated",
-					Stats = new PbStats() {  Hp = 0, Ap = 0, Attack = 1, Defense = 1, MagicAttack = 0, MagicDefense = 0, Speed = 0, ResistFire = 0, ResistIce = -10, ResistLightning = -10, ResistEarth = 10, ResistLight = 0, ResistDark = 10 }
+					Stats = new PbStats() {  Hp = 0, Ap = 0, Attack = 1, Defense = 1, MagicAttack = 0, MagicDefense = 0, Speed = 0, AffinityFire = 0, AffinityIce = -10, AffinityLightning = -10, AffinityEarth = 10, AffinityLight = 0, AffinityDark = 10 }
 				},
 				new PbRace
 				{
 					Name = "Mutant",
 					Description = "When magic becomes too integrated",
-					Stats = new PbStats() {  Hp = 0, Ap = 0, Attack = 0, Defense = 0, MagicAttack = 1, MagicDefense = 1, Speed = 0, ResistFire = -10, ResistIce = 0, ResistLightning = 10, ResistEarth = 0, ResistLight = -10, ResistDark = 10 }
+					Stats = new PbStats() {  Hp = 0, Ap = 0, Attack = 0, Defense = 0, MagicAttack = 1, MagicDefense = 1, Speed = 0, AffinityFire = -10, AffinityIce = 0, AffinityLightning = 10, AffinityEarth = 0, AffinityLight = -10, AffinityDark = 10 }
 				}
 			};
 
@@ -154,43 +154,43 @@ namespace ProjectBlazor.Data.DataSource
 				{
 					Name = "Hunter",
 					Description = "",
-					Stats = new PbStats() {  Hp = 1, Ap = 1, Attack = 1, Defense = 1, MagicAttack = 1, MagicDefense = 1, Speed = 1, ResistFire = 5, ResistIce = 5, ResistLightning = 5, ResistEarth = 5, ResistLight = 5, ResistDark = 5 }
+					Stats = new PbStats() {  Hp = 1, Ap = 1, Attack = 1, Defense = 1, MagicAttack = 1, MagicDefense = 1, Speed = 1, AffinityFire = 5, AffinityIce = 5, AffinityLightning = 5, AffinityEarth = 5, AffinityLight = 5, AffinityDark = 5 }
 				},
 				new PbClass
 				{
 					Name = "Champion",
 					Description = "",
-					Stats = new PbStats() {  Hp = 1, Ap = 1, Attack = 3, Defense = 1, MagicAttack = 0, MagicDefense = 0, Speed = 1, ResistFire = 10, ResistIce = 10, ResistLightning = -10, ResistEarth = -10, ResistLight = 0, ResistDark = 10 }
+					Stats = new PbStats() {  Hp = 1, Ap = 1, Attack = 3, Defense = 1, MagicAttack = 0, MagicDefense = 0, Speed = 1, AffinityFire = 10, AffinityIce = 10, AffinityLightning = -10, AffinityEarth = -10, AffinityLight = 0, AffinityDark = 10 }
 				},
 				new PbClass
 				{
 					Name = "Ranger",
 					Description = "",
-					Stats = new PbStats() {  Hp = 1, Ap = 1, Attack = 1, Defense = 0, MagicAttack = 1, MagicDefense = 0, Speed = 3, ResistFire = 0, ResistIce = 0, ResistLightning = 5, ResistEarth = 5, ResistLight = 5, ResistDark = 15 }
+					Stats = new PbStats() {  Hp = 1, Ap = 1, Attack = 1, Defense = 0, MagicAttack = 1, MagicDefense = 0, Speed = 3, AffinityFire = 0, AffinityIce = 0, AffinityLightning = 5, AffinityEarth = 5, AffinityLight = 5, AffinityDark = 15 }
 				},
 				new PbClass
 				{
 					Name = "Assassin",
 					Description = "",
-					Stats = new PbStats() {  Hp = 0, Ap = 1, Attack = 3, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 3, ResistFire = 0, ResistIce = 0, ResistLightning = 0, ResistEarth = 0, ResistLight = -50, ResistDark = 50 }
+					Stats = new PbStats() {  Hp = 0, Ap = 1, Attack = 3, Defense = 0, MagicAttack = 0, MagicDefense = 0, Speed = 3, AffinityFire = 0, AffinityIce = 0, AffinityLightning = 0, AffinityEarth = 0, AffinityLight = -50, AffinityDark = 50 }
 				},
 				new PbClass
 				{
 					Name = "Vanguard",
 					Description = "",
-					Stats = new PbStats() {  Hp = 2, Ap = 1, Attack = 0, Defense = 2, MagicAttack = 0, MagicDefense = 2, Speed = 0, ResistFire = 10, ResistIce = 10, ResistLightning = 10, ResistEarth = 10, ResistLight = 0, ResistDark = 0 }
+					Stats = new PbStats() {  Hp = 2, Ap = 1, Attack = 0, Defense = 2, MagicAttack = 0, MagicDefense = 2, Speed = 0, AffinityFire = 10, AffinityIce = 10, AffinityLightning = 10, AffinityEarth = 10, AffinityLight = 0, AffinityDark = 0 }
 				},
 				new PbClass
 				{
 					Name = "Sorcerer",
 					Description = "",
-					Stats = new PbStats() {  Hp = 0, Ap = 1, Attack = 0, Defense = 0, MagicAttack = 3, MagicDefense = 3, Speed = 0, ResistFire = 10, ResistIce = 10, ResistLightning = 10, ResistEarth = 10, ResistLight = 10, ResistDark = 10 }
+					Stats = new PbStats() {  Hp = 0, Ap = 1, Attack = 0, Defense = 0, MagicAttack = 3, MagicDefense = 3, Speed = 0, AffinityFire = 10, AffinityIce = 10, AffinityLightning = 10, AffinityEarth = 10, AffinityLight = 10, AffinityDark = 10 }
 				},
 				new PbClass
 				{
 					Name = "Technician",
 					Description = "",
-					Stats = new PbStats() {  Hp = 0, Ap = 1, Attack = 0, Defense = 1, MagicAttack = 2, MagicDefense = 1, Speed = 2, ResistFire = 5, ResistIce = -5, ResistLightning = -5, ResistEarth = 15, ResistLight = 5, ResistDark = 0 }
+					Stats = new PbStats() {  Hp = 0, Ap = 1, Attack = 0, Defense = 1, MagicAttack = 2, MagicDefense = 1, Speed = 2, AffinityFire = 5, AffinityIce = -5, AffinityLightning = -5, AffinityEarth = 15, AffinityLight = 5, AffinityDark = 0 }
 				}
 			};
 

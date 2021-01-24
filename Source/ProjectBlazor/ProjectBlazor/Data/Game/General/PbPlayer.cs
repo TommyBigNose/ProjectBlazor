@@ -68,6 +68,11 @@ namespace ProjectBlazor.Data.Game.General
 			return _hpCurrent <= 0;
 		}
 
+		public List<PbAbility> GetAbilities()
+		{
+			return Abilities;
+		}
+
 		public void TakeDamage(int damage)
 		{
 			if (_hpCurrent - damage <= 0) _hpCurrent = 0;
@@ -177,78 +182,88 @@ namespace ProjectBlazor.Data.Game.General
 				Class.Stats.Speed;
 		}
 
-		public int GetResistFireTotal()
+		public int GetAffinityFireTotal()
 		{
-			return Stats.ResistFire +
-				Weapon.Stats.ResistFire +
-				Armor.Stats.ResistFire +
-				Barrier.Stats.ResistFire +
-				Race.Stats.ResistFire +
-				Class.Stats.ResistFire;
+			return Stats.AffinityFire +
+				Weapon.Stats.AffinityFire +
+				Armor.Stats.AffinityFire +
+				Barrier.Stats.AffinityFire +
+				Race.Stats.AffinityFire +
+				Class.Stats.AffinityFire;
 		}
 
-		public int GetResistIceTotal()
+		public int GetAffinityIceTotal()
 		{
-			return Stats.ResistIce +
-				Weapon.Stats.ResistIce +
-				Armor.Stats.ResistIce +
-				Barrier.Stats.ResistIce +
-				Race.Stats.ResistIce +
-				Class.Stats.ResistIce;
+			return Stats.AffinityIce +
+				Weapon.Stats.AffinityIce +
+				Armor.Stats.AffinityIce +
+				Barrier.Stats.AffinityIce +
+				Race.Stats.AffinityIce +
+				Class.Stats.AffinityIce;
 		}
 
-		public int GetResistLightningTotal()
+		public int GetAffinityLightningTotal()
 		{
-			return Stats.ResistLightning +
-				Weapon.Stats.ResistLightning +
-				Armor.Stats.ResistLightning +
-				Barrier.Stats.ResistLightning +
-				Race.Stats.ResistLightning +
-				Class.Stats.ResistLightning;
+			return Stats.AffinityLightning +
+				Weapon.Stats.AffinityLightning +
+				Armor.Stats.AffinityLightning +
+				Barrier.Stats.AffinityLightning +
+				Race.Stats.AffinityLightning +
+				Class.Stats.AffinityLightning;
 		}
 
-		public int GetResistEarthTotal()
+		public int GetAffinityEarthTotal()
 		{
-			return Stats.ResistEarth +
-				Weapon.Stats.ResistEarth +
-				Armor.Stats.ResistEarth +
-				Barrier.Stats.ResistEarth +
-				Race.Stats.ResistEarth +
-				Class.Stats.ResistEarth;
+			return Stats.AffinityEarth +
+				Weapon.Stats.AffinityEarth +
+				Armor.Stats.AffinityEarth +
+				Barrier.Stats.AffinityEarth +
+				Race.Stats.AffinityEarth +
+				Class.Stats.AffinityEarth;
 		}
 
-		public int GetResistLightTotal()
+		public int GetAffinityLightTotal()
 		{
-			return Stats.ResistLight +
-				Weapon.Stats.ResistLight +
-				Armor.Stats.ResistLight +
-				Barrier.Stats.ResistLight +
-				Race.Stats.ResistLight +
-				Class.Stats.ResistLight;
+			return Stats.AffinityLight +
+				Weapon.Stats.AffinityLight +
+				Armor.Stats.AffinityLight +
+				Barrier.Stats.AffinityLight +
+				Race.Stats.AffinityLight +
+				Class.Stats.AffinityLight;
 		}
 
-		public int GetResistDarkTotal()
+		public int GetAffinityDarkTotal()
 		{
-			return Stats.ResistDark +
-				Weapon.Stats.ResistDark +
-				Armor.Stats.ResistDark +
-				Barrier.Stats.ResistDark +
-				Race.Stats.ResistDark +
-				Class.Stats.ResistDark;
+			return Stats.AffinityDark +
+				Weapon.Stats.AffinityDark +
+				Armor.Stats.AffinityDark +
+				Barrier.Stats.AffinityDark +
+				Race.Stats.AffinityDark +
+				Class.Stats.AffinityDark;
 		}
 
 		public double GetAppropriateResistance(ELEMENT element)
 		{
 			double resistance = 0.0;
 
-			if (element == ELEMENT.FIRE) resistance = (double)GetResistFireTotal() / 100.00;
-			else if (element == ELEMENT.ICE) resistance = (double)GetResistIceTotal() / 100.00;
-			else if (element == ELEMENT.LIGHTNING) resistance = (double)GetResistLightningTotal() / 100.00;
-			else if (element == ELEMENT.EARTH) resistance = (double)GetResistEarthTotal() / 100.00;
-			else if (element == ELEMENT.LIGHT) resistance = (double)GetResistLightTotal() / 100.00;
-			else if (element == ELEMENT.DARK) resistance = (double)GetResistDarkTotal() / 100.00;
+			if (element == ELEMENT.FIRE) resistance = (double)GetAffinityFireTotal() / 100.00;
+			else if (element == ELEMENT.ICE) resistance = (double)GetAffinityIceTotal() / 100.00;
+			else if (element == ELEMENT.LIGHTNING) resistance = (double)GetAffinityLightningTotal() / 100.00;
+			else if (element == ELEMENT.EARTH) resistance = (double)GetAffinityEarthTotal() / 100.00;
+			else if (element == ELEMENT.LIGHT) resistance = (double)GetAffinityLightTotal() / 100.00;
+			else if (element == ELEMENT.DARK) resistance = (double)GetAffinityDarkTotal() / 100.00;
 
 			return resistance;
+		}
+
+		public int GetExp()
+		{
+			return Exp;
+		}
+
+		public int GetCredits()
+		{
+			return Credits;
 		}
 	}
 }

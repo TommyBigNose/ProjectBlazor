@@ -1,4 +1,6 @@
-﻿using static ProjectBlazor.Data.Game.General.PbTypes;
+﻿using ProjectBlazor.Data.Game.Ability;
+using System.Collections.Generic;
+using static ProjectBlazor.Data.Game.General.PbTypes;
 
 namespace ProjectBlazor.Data.Game.Battle
 {
@@ -7,6 +9,7 @@ namespace ProjectBlazor.Data.Game.Battle
 		BATTLE_PARTICIPANT GetBattleParticipant();
 		void Reset();
 		bool IsDead();
+		List<PbAbility> GetAbilities();
 		void TakeDamage(int damage);
 		void TakeHeal(int heal);
 		void UseAp(int apUse);
@@ -21,12 +24,14 @@ namespace ProjectBlazor.Data.Game.Battle
 		int GetMagicAttackTotal();
 		int GetMagicDefenseTotal();
 		int GetSpeedTotal();
-		int GetResistFireTotal();
-		int GetResistIceTotal();
-		int GetResistLightningTotal();
-		int GetResistEarthTotal();
-		int GetResistLightTotal();
-		int GetResistDarkTotal();
+		int GetAffinityFireTotal();
+		int GetAffinityIceTotal();
+		int GetAffinityLightningTotal();
+		int GetAffinityEarthTotal();
+		int GetAffinityLightTotal();
+		int GetAffinityDarkTotal();
 		double GetAppropriateResistance(ELEMENT element);
+		int GetExp();
+		int GetCredits();
 	}
 }
