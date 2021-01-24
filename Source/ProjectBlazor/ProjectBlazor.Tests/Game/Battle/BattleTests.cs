@@ -16,9 +16,6 @@ namespace ProjectBlazor.Tests.Game.Battle
 		[SetUp]
 		public void Setup()
 		{
-			//_player = new PbPlayer();
-			//_enemy = new PbEnemy();
-
 			_mockPlayer = new Mock<IPbBattleReady>();
 			_mockEnemy = new Mock<IPbBattleReady>();
 		}
