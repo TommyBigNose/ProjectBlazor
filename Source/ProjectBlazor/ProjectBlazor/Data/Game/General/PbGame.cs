@@ -1,6 +1,7 @@
 ﻿using ProjectBlazor.Data.DataSource;
 using ProjectBlazor.Data.Game.Ability;
 using ProjectBlazor.Data.Game.Battle;
+using ProjectBlazor.Data.Game.Encounter;
 using ProjectBlazor.Data.Game.Equipment;
 using ProjectBlazor.Data.Game.Stats;
 using System;
@@ -19,6 +20,7 @@ namespace ProjectBlazor.Data.Game.General
 		public List<PbRace> Races { get; set; }
 		public List<PbClass> Classes { get; set; }
 		public PbBattle Battle { get; set; }
+		public List<PbEncounter> Encounters { get; set; }
 
 		public PbGame(IPbDataSource dataSource)
 		{
@@ -26,6 +28,7 @@ namespace ProjectBlazor.Data.Game.General
 			Abilities = dataSource.GetAbilities();
 			Races = dataSource.GetRaces();
 			Classes = dataSource.GetClasses();
+			Encounters = dataSource.GetEncounters();
 
 			Player = InitPlayer();
 			Battle = InitBattle();

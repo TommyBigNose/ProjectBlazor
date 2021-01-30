@@ -9,91 +9,89 @@ namespace ProjectBlazor.Tests.Mocks
 {
 	public static class MockBattleReady
 	{
-		public static Mock<IPbBattleReady> _mockBattleReady;
-
 		public static Mock<IPbBattleReady> GetBasicBattleReadyMember()
 		{
-			_mockBattleReady = new Mock<IPbBattleReady>();
+			Mock<IPbBattleReady> mockBattleReady = new Mock<IPbBattleReady>();
 
-			_mockBattleReady.Setup(x => x.Reset())
+			mockBattleReady.Setup(x => x.Reset())
 				.Verifiable();
 
-			_mockBattleReady.Setup(x => x.IsDead())
+			mockBattleReady.Setup(x => x.IsDead())
 				.Returns(false);
 
-			_mockBattleReady.Setup(x => x.GetAbilities())
+			mockBattleReady.Setup(x => x.GetAbilities())
 				.Returns(GetBasicAbilities());
 
-			_mockBattleReady.Setup(x => x.TakeDamage(It.IsAny<int>()))
+			mockBattleReady.Setup(x => x.TakeDamage(It.IsAny<int>()))
 				.Verifiable();
 
-			_mockBattleReady.Setup(x => x.TakeHeal(It.IsAny<int>()))
+			mockBattleReady.Setup(x => x.TakeHeal(It.IsAny<int>()))
 				.Verifiable();
 
-			_mockBattleReady.Setup(x => x.UseAp(It.IsAny<int>()))
+			mockBattleReady.Setup(x => x.UseAp(It.IsAny<int>()))
 				.Verifiable();
 
-			_mockBattleReady.Setup(x => x.RecoverAp(It.IsAny<int>()))
+			mockBattleReady.Setup(x => x.RecoverAp(It.IsAny<int>()))
 				.Verifiable();
 
-			_mockBattleReady.Setup(x => x.ApplyStatusEffects())
+			mockBattleReady.Setup(x => x.ApplyStatusEffects())
 				.Verifiable();
 
-			_mockBattleReady.Setup(x => x.GetHpCurrent())
+			mockBattleReady.Setup(x => x.GetHpCurrent())
 				.Returns(It.IsAny<int>);
 
-			_mockBattleReady.Setup(x => x.GetHpTotal())
+			mockBattleReady.Setup(x => x.GetHpTotal())
 				.Returns(It.IsAny<int>);
 
-			_mockBattleReady.Setup(x => x.GetApCurrent())
+			mockBattleReady.Setup(x => x.GetApCurrent())
 				.Returns(It.IsAny<int>);
 
-			_mockBattleReady.Setup(x => x.GetApTotal())
+			mockBattleReady.Setup(x => x.GetApTotal())
 				.Returns(It.IsAny<int>);
 
-			_mockBattleReady.Setup(x => x.GetAttackTotal())
+			mockBattleReady.Setup(x => x.GetAttackTotal())
 				.Returns(It.IsAny<int>);
 
-			_mockBattleReady.Setup(x => x.GetDefenseTotal())
+			mockBattleReady.Setup(x => x.GetDefenseTotal())
 				.Returns(It.IsAny<int>);
 
-			_mockBattleReady.Setup(x => x.GetMagicAttackTotal())
+			mockBattleReady.Setup(x => x.GetMagicAttackTotal())
 				.Returns(It.IsAny<int>);
 
-			_mockBattleReady.Setup(x => x.GetMagicDefenseTotal())
+			mockBattleReady.Setup(x => x.GetMagicDefenseTotal())
 				.Returns(It.IsAny<int>);
 
-			_mockBattleReady.Setup(x => x.GetSpeedTotal())
+			mockBattleReady.Setup(x => x.GetSpeedTotal())
 				.Returns(It.IsAny<int>);
 
-			_mockBattleReady.Setup(x => x.GetAffinityFireTotal())
+			mockBattleReady.Setup(x => x.GetAffinityFireTotal())
 				.Returns(It.IsAny<int>);
 
-			_mockBattleReady.Setup(x => x.GetAffinityIceTotal())
+			mockBattleReady.Setup(x => x.GetAffinityIceTotal())
 				.Returns(It.IsAny<int>);
 
-			_mockBattleReady.Setup(x => x.GetAffinityLightningTotal())
+			mockBattleReady.Setup(x => x.GetAffinityLightningTotal())
 				.Returns(It.IsAny<int>);
 
-			_mockBattleReady.Setup(x => x.GetAffinityEarthTotal())
+			mockBattleReady.Setup(x => x.GetAffinityEarthTotal())
 				.Returns(It.IsAny<int>);
 
-			_mockBattleReady.Setup(x => x.GetAffinityLightTotal())
+			mockBattleReady.Setup(x => x.GetAffinityLightTotal())
 				.Returns(It.IsAny<int>);
 
-			_mockBattleReady.Setup(x => x.GetAffinityDarkTotal())
+			mockBattleReady.Setup(x => x.GetAffinityDarkTotal())
 				.Returns(It.IsAny<int>);
 
-			_mockBattleReady.Setup(x => x.GetAppropriateResistance(It.IsAny<ELEMENT>()))
+			mockBattleReady.Setup(x => x.GetAppropriateResistance(It.IsAny<ELEMENT>()))
 				.Returns(It.IsAny<double>);
 
-			_mockBattleReady.Setup(x => x.GetExp())
+			mockBattleReady.Setup(x => x.GetExp())
 				.Returns(It.IsAny<int>);
 
-			_mockBattleReady.Setup(x => x.GetCredits())
+			mockBattleReady.Setup(x => x.GetCredits())
 				.Returns(It.IsAny<int>);
 
-			return _mockBattleReady;
+			return mockBattleReady;
 		}
 
 		public static List<PbAbility> GetBasicAbilities()

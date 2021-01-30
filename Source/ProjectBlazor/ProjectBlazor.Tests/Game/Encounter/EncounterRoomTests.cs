@@ -8,16 +8,17 @@ using System.Collections.Generic;
 namespace ProjectBlazor.Tests.Game.Encounter
 {
 	[Category("Unit")]
-	public class EncounterTests
+	public class EncounterRoomTests
 	{
-		IPbEncounter _sut;
+		PbEncounterRoom _sut;
 		Mock<IPbBattleReady> _mockPlayer;
+		Mock<IPbEncounter> _mockEncounter;
 
 		[SetUp]
 		public void Setup()
 		{
 			_mockPlayer = new Mock<IPbBattleReady>();
-
+			_mockEncounter = new Mock<IPbEncounter>();
 
 		}
 
@@ -25,6 +26,7 @@ namespace ProjectBlazor.Tests.Game.Encounter
 		public void TearDown()
 		{
 			_mockPlayer = null;
+			_mockEncounter = null;
 			_sut = null;
 		}
 
@@ -33,8 +35,9 @@ namespace ProjectBlazor.Tests.Game.Encounter
 		{
 			// Arrange
 			_mockPlayer = MockBattleReady.GetBasicBattleReadyMember();
+			_mockEncounter = MockEncounter.GetBasicEncounter();
 			List<PbDecision> decisions = new List<PbDecision>();
-			_sut = new PbEncounter(_mockPlayer.Object, 1, decisions);
+			_sut = new PbEncounterRoom(_mockPlayer.Object, _mockEncounter.Object);
 
 			// Act
 

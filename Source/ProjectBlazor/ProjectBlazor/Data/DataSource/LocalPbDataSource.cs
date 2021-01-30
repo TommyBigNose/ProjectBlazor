@@ -1,4 +1,5 @@
 ﻿using ProjectBlazor.Data.Game.Ability;
+using ProjectBlazor.Data.Game.Encounter;
 using ProjectBlazor.Data.Game.Equipment;
 using ProjectBlazor.Data.Game.General;
 using ProjectBlazor.Data.Game.Stats;
@@ -195,6 +196,28 @@ namespace ProjectBlazor.Data.DataSource
 			};
 
 			return classes;
+		}
+
+		public List<PbEncounter> GetEncounters()
+		{
+			List<PbEncounter> encounters = new List<PbEncounter>
+			{
+				new PbEncounter
+				{
+					Name = "The first room",
+					RecommendedLevel = 1,
+					Decisions = new List<PbDecision>
+					{
+						new PbDecision
+						{
+							Name = "Fight",
+							Description = "You stare down a generic look orc"
+						}
+					}
+				}
+			};
+
+			return encounters;
 		}
 	}
 }
