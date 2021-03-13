@@ -212,6 +212,13 @@ namespace ProjectBlazor.Data.DataSource
 						{
 							Name = "Fight",
 							Description = "You stare down a generic look orc"
+						},
+						new PbDecision
+						{
+							Name = "Search nearby bush",
+							Description = "There is something funny about that bush",
+							RequiredStat = STAT_ATTRIBUTE.ATTACK,
+							RequiredStatValue = 3
 						}
 					}
 				}

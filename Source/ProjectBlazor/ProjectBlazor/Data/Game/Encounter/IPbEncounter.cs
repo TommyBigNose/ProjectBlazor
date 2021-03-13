@@ -6,5 +6,6 @@ namespace ProjectBlazor.Data.Game.Encounter
 	{
 		int GetRecommendedLevel();
 		List<PbDecision> GetDecisions();
+		bool DoesPlayerHaveRequiredStat(PbDecision decision);
 	}
 }

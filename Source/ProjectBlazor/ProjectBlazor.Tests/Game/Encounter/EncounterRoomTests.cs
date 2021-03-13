@@ -36,13 +36,30 @@ namespace ProjectBlazor.Tests.Game.Encounter
 			// Arrange
 			_mockPlayer = MockBattleReady.GetBasicBattleReadyMember();
 			_mockEncounter = MockEncounter.GetBasicEncounter();
-			List<PbDecision> decisions = new List<PbDecision>();
+			List<PbDecision> decisions = _mockEncounter.Object.GetDecisions();
 			_sut = new PbEncounterRoom(_mockPlayer.Object, _mockEncounter.Object);
 
 			// Act
 
 			// Assert
 			Assert.IsTrue(_sut.GetRecommendedLevel() > 0);
+		}
+
+		[Test]
+		public void Test_EncounterDoesPlayerHaveRequiredStat()
+		{
+			// Arrange
+			_mockPlayer = MockBattleReady.GetBasicBattleReadyMember();
+			_mockEncounter = MockEncounter.GetBasicEncounter();
+			List<PbDecision> decisions = _mockEncounter.Object.GetDecisions();
+			_sut = new PbEncounterRoom(_mockPlayer.Object, _mockEncounter.Object);
+
+			// Act
+
+			// Assert
+			Assert.IsTrue(_sut.DoesPlayerHaveRequiredStat(decisions[0]));
+			Assert.IsTrue(_sut.DoesPlayerHaveRequiredStat(decisions[1]));
+			Assert.IsFalse(_sut.DoesPlayerHaveRequiredStat(decisions[2]));
 		}
 	}
 }

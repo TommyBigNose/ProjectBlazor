@@ -18,5 +18,10 @@ namespace ProjectBlazor.Data.Game.Encounter
 		{
 			return Encounter.GetRecommendedLevel();
 		}
+
+		public bool DoesPlayerHaveRequiredStat(PbDecision decision)
+		{
+			return Encounter.DoesPlayerHaveRequiredStat(decision);
+		}
 	}
 }

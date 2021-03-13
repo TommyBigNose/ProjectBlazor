@@ -16,6 +16,13 @@ namespace ProjectBlazor.Tests.Mocks
 			mockEncounter.Setup(x => x.GetDecisions())
 				.Returns(GetBasicDecisions());
 
+			mockEncounter.Setup(x => x.DoesPlayerHaveRequiredStat(It.Is<PbDecision>(y => y.Id == GetBasicDecisions()[0].Id)))
+				.Returns(true);
+			mockEncounter.Setup(x => x.DoesPlayerHaveRequiredStat(It.Is<PbDecision>(y => y.Id == GetBasicDecisions()[1].Id)))
+				.Returns(true);
+			mockEncounter.Setup(x => x.DoesPlayerHaveRequiredStat(It.Is<PbDecision>(y => y.Id == GetBasicDecisions()[2].Id)))
+				.Returns(false);
+
 			return mockEncounter;
 		}
 
@@ -27,10 +34,21 @@ namespace ProjectBlazor.Tests.Mocks
 			{
 				new PbDecision
 				{
-					Name = "Fight"
+					Id = 1,
+					Name = "Fight",
+					Description = "You stare down a generic look orc"
 				},
 				new PbDecision
 				{
+					Id = 2,
+					Name = "Search nearby bush",
+					Description = "There is something funny about that bush",
+					RequiredStat = Data.Game.General.PbTypes.STAT_ATTRIBUTE.ATTACK,
+					RequiredStatValue = 3
+				},
+				new PbDecision
+				{
+					Id = 3,
 					Name = "Dodge",
 					RequiredStat = Data.Game.General.PbTypes.STAT_ATTRIBUTE.SPEED,
 					RequiredStatValue = 10

@@ -38,58 +38,58 @@ namespace ProjectBlazor.Tests.Mocks
 				.Verifiable();
 
 			mockBattleReady.Setup(x => x.GetHpCurrent())
-				.Returns(It.IsAny<int>);
+				.Returns(3);
 
 			mockBattleReady.Setup(x => x.GetHpTotal())
-				.Returns(It.IsAny<int>);
+				.Returns(3);
 
 			mockBattleReady.Setup(x => x.GetApCurrent())
-				.Returns(It.IsAny<int>);
+				.Returns(3);
 
 			mockBattleReady.Setup(x => x.GetApTotal())
-				.Returns(It.IsAny<int>);
+				.Returns(3);
 
 			mockBattleReady.Setup(x => x.GetAttackTotal())
-				.Returns(It.IsAny<int>);
+				.Returns(3);
 
 			mockBattleReady.Setup(x => x.GetDefenseTotal())
-				.Returns(It.IsAny<int>);
+				.Returns(3);
 
 			mockBattleReady.Setup(x => x.GetMagicAttackTotal())
-				.Returns(It.IsAny<int>);
+				.Returns(3);
 
 			mockBattleReady.Setup(x => x.GetMagicDefenseTotal())
-				.Returns(It.IsAny<int>);
+				.Returns(3);
 
 			mockBattleReady.Setup(x => x.GetSpeedTotal())
-				.Returns(It.IsAny<int>);
+				.Returns(3);
 
 			mockBattleReady.Setup(x => x.GetAffinityFireTotal())
-				.Returns(It.IsAny<int>);
+				.Returns(3);
 
 			mockBattleReady.Setup(x => x.GetAffinityIceTotal())
-				.Returns(It.IsAny<int>);
+				.Returns(3);
 
 			mockBattleReady.Setup(x => x.GetAffinityLightningTotal())
-				.Returns(It.IsAny<int>);
+				.Returns(3);
 
 			mockBattleReady.Setup(x => x.GetAffinityEarthTotal())
-				.Returns(It.IsAny<int>);
+				.Returns(3);
 
 			mockBattleReady.Setup(x => x.GetAffinityLightTotal())
-				.Returns(It.IsAny<int>);
+				.Returns(3);
 
 			mockBattleReady.Setup(x => x.GetAffinityDarkTotal())
-				.Returns(It.IsAny<int>);
+				.Returns(3);
 
 			mockBattleReady.Setup(x => x.GetAppropriateResistance(It.IsAny<ELEMENT>()))
-				.Returns(It.IsAny<double>);
+				.Returns(10.0);
 
 			mockBattleReady.Setup(x => x.GetExp())
-				.Returns(It.IsAny<int>);
+				.Returns(3);
 
 			mockBattleReady.Setup(x => x.GetCredits())
-				.Returns(It.IsAny<int>);
+				.Returns(3);
 
 			return mockBattleReady;
 		}
