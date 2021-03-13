@@ -19,9 +19,26 @@ namespace ProjectBlazor.Data.Game.Encounter
 			return Encounter.GetRecommendedLevel();
 		}
 
+		public bool DoesPlayerHaveRequiredStat(string decisionName)
+		{
+			PbDecision decision = Encounter.GetDecisions().Find(x => x.Name.Equals(decisionName, System.StringComparison.CurrentCultureIgnoreCase));
+
+			return DoesPlayerHaveRequiredStat(decision);
+		}
+
 		public bool DoesPlayerHaveRequiredStat(PbDecision decision)
 		{
-			return Encounter.DoesPlayerHaveRequiredStat(decision);
+			int requiredStat = 0;
+
+			if (decision.RequiredStat == 0) return true;
+
+			if (decision.RequiredStat == PbTypes.STAT_ATTRIBUTE.ATTACK) requiredStat = Player.GetAttackTotal();
+			else if (decision.RequiredStat == PbTypes.STAT_ATTRIBUTE.DEFENSE) requiredStat = Player.GetDefenseTotal();
+			else if (decision.RequiredStat == PbTypes.STAT_ATTRIBUTE.ATTACK_MAGIC) requiredStat = Player.GetMagicAttackTotal();
+			else if (decision.RequiredStat == PbTypes.STAT_ATTRIBUTE.DEFENSE_MAGIC) requiredStat = Player.GetMagicDefenseTotal();
+			else if (decision.RequiredStat == PbTypes.STAT_ATTRIBUTE.SPEED) requiredStat = Player.GetSpeedTotal();
+
+			return requiredStat >= decision.RequiredStatValue;
 		}
 	}
 }

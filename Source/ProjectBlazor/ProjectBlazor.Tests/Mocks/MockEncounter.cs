@@ -16,13 +16,6 @@ namespace ProjectBlazor.Tests.Mocks
 			mockEncounter.Setup(x => x.GetDecisions())
 				.Returns(GetBasicDecisions());
 
-			mockEncounter.Setup(x => x.DoesPlayerHaveRequiredStat(It.Is<PbDecision>(y => y.Id == GetBasicDecisions()[0].Id)))
-				.Returns(true);
-			mockEncounter.Setup(x => x.DoesPlayerHaveRequiredStat(It.Is<PbDecision>(y => y.Id == GetBasicDecisions()[1].Id)))
-				.Returns(true);
-			mockEncounter.Setup(x => x.DoesPlayerHaveRequiredStat(It.Is<PbDecision>(y => y.Id == GetBasicDecisions()[2].Id)))
-				.Returns(false);
-
 			return mockEncounter;
 		}
 
