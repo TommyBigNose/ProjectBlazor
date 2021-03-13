@@ -205,6 +205,7 @@ namespace ProjectBlazor.Data.DataSource
 				new PbEncounter
 				{
 					Name = "The first room",
+					Description= "Why are you playing this?",
 					RecommendedLevel = 1,
 					Decisions = new List<PbDecision>
 					{
@@ -219,6 +220,13 @@ namespace ProjectBlazor.Data.DataSource
 							Description = "There is something funny about that bush",
 							RequiredStat = STAT_ATTRIBUTE.ATTACK,
 							RequiredStatValue = 3
+						},
+						new PbDecision
+						{
+							Name = "Beat the game early",
+							Description = "You can't do this, don't even try",
+							RequiredStat = STAT_ATTRIBUTE.DEFENSE,
+							RequiredStatValue = 100
 						}
 					}
 				}

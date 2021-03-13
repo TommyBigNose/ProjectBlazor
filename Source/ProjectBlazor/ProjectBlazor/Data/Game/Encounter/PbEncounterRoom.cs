@@ -14,6 +14,16 @@ namespace ProjectBlazor.Data.Game.Encounter
 			Encounter = encounter;
 		}
 
+		public string GetEncounterName()
+		{
+			return Encounter.GetName();
+		}
+
+		public string GetEncounterDescription()
+		{
+			return Encounter.GetDescription();
+		}
+
 		public int GetRecommendedLevel()
 		{
 			return Encounter.GetRecommendedLevel();

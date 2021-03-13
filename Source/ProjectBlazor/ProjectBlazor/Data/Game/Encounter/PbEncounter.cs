@@ -8,14 +8,26 @@ namespace ProjectBlazor.Data.Game.Encounter
 		public int RecommendedLevel { get; set; }
 		public List<PbDecision> Decisions { get; set; }
 
-		public List<PbDecision> GetDecisions()
+		public string GetName()
 		{
-			return Decisions;
+			return Name;
+		}
+
+		public string GetDescription()
+		{
+			return Description;
 		}
 
 		public int GetRecommendedLevel()
 		{
 			return RecommendedLevel;
 		}
+
+		public List<PbDecision> GetDecisions()
+		{
+			return Decisions;
+		}
+
+
 	}
 }

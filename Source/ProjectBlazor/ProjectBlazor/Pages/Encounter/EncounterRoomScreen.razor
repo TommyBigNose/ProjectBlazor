@@ -1,0 +1,70 @@
+﻿@page "/Encounter/EncounterRoomScreen"
+
+@using ProjectBlazor.Data.Game
+@inject ProjectBlazor.Data.Game.General.PbGame ProjectBlazorGame
+
+<h3>EncounterRoomScreen</h3>
+
+<table class="table table-bordered table-sm">
+    <tr>
+        <td>
+            Name
+        </td>
+        <td>
+            Description
+        </td>
+        <td>
+            Recommended Level
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @ProjectBlazorGame.EncounterRoom.GetEncounterName()
+        </td>
+        <td>
+            @ProjectBlazorGame.EncounterRoom.GetEncounterDescription()
+        </td>
+        <td>
+            @ProjectBlazorGame.EncounterRoom.GetRecommendedLevel()
+        </td>
+    </tr>
+</table>
+
+
+<table class="table table-bordered table-sm">
+    <tr>
+        <td>
+            Name
+        </td>
+        <td>
+            Description
+        </td>
+        <td>
+            Act!
+        </td>
+    </tr>
+
+    @foreach (ProjectBlazor.Data.Game.Encounter.PbDecision decision in ProjectBlazorGame.EncounterRoom.Encounter.GetDecisions())
+    {
+        <tr>
+            <td>
+                @decision.Name
+            </td>
+            <td>
+                @decision.Description
+            </td>
+            <td>
+                <button class="btn btn-primary" disabled="@(!ProjectBlazorGame.EncounterRoom.DoesPlayerHaveRequiredStat(decision))" @onclick="@(e => DoIt(decision))">
+                    DO IT
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+
+@code {
+    private void DoIt(ProjectBlazor.Data.Game.Encounter.PbDecision decision)
+    {
+        //
+    }
+}

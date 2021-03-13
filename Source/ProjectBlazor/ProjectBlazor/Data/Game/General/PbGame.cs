@@ -21,6 +21,7 @@ namespace ProjectBlazor.Data.Game.General
 		public List<PbClass> Classes { get; set; }
 		public PbBattle Battle { get; set; }
 		public List<PbEncounter> Encounters { get; set; }
+		public PbEncounterRoom EncounterRoom { get; set; }
 
 		public PbGame(IPbDataSource dataSource)
 		{
@@ -32,6 +33,8 @@ namespace ProjectBlazor.Data.Game.General
 
 			Player = InitPlayer();
 			Battle = InitBattle();
+
+			EncounterRoom = InitEncounterRoom();
 		}
 
 		public void ResetBattle()
@@ -150,6 +153,13 @@ namespace ProjectBlazor.Data.Game.General
 			PbBattle battle = new PbBattle(Player, enemy);
 
 			return battle;
+		}
+
+		private PbEncounterRoom InitEncounterRoom()
+		{
+			PbEncounterRoom encounterRoom = new PbEncounterRoom(Player, Encounters.First());
+
+			return encounterRoom;
 		}
 
 	}
