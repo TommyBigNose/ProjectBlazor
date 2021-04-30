@@ -75,8 +75,6 @@ namespace ProjectBlazor.Tests.Game.Encounter
 
 			// Assert
 			Assert.IsTrue(_sut.DoesPlayerHaveRequiredStat(decisionName) == expectedValue);
-			Assert.IsTrue(_sut.DoesPlayerHaveRequiredStat(decisionName) == expectedValue);
-			Assert.IsTrue(_sut.DoesPlayerHaveRequiredStat(decisionName) == expectedValue);
 		}
 	}
 }

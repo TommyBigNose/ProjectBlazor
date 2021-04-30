@@ -7,5 +7,6 @@ namespace ProjectBlazor.Data.Game.Encounter
 	{
 		public STAT_ATTRIBUTE RequiredStat { get; set; }
 		public int RequiredStatValue { get; set; }
+		public DECISION_TYPE DecisionType { get; set; }
 	}
 }

@@ -27,7 +27,5 @@ namespace ProjectBlazor.Data.Game.Encounter
 		{
 			return Decisions;
 		}
-
-
 	}
 }

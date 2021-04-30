@@ -55,5 +55,13 @@
 			PLAYER,
 			ENEMY
 		}
+
+		public enum DECISION_TYPE
+		{
+			NOTHING,
+			BATTLE,
+			MISC,
+			REST
+		}
 	}
 }

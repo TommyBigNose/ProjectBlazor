@@ -212,21 +212,24 @@ namespace ProjectBlazor.Data.DataSource
 						new PbDecision
 						{
 							Name = "Fight",
-							Description = "You stare down a generic look orc"
+							Description = "You stare down a generic look orc",
+							DecisionType = DECISION_TYPE.BATTLE
 						},
 						new PbDecision
 						{
 							Name = "Search nearby bush",
 							Description = "There is something funny about that bush",
 							RequiredStat = STAT_ATTRIBUTE.ATTACK,
-							RequiredStatValue = 3
+							RequiredStatValue = 3,
+							DecisionType = DECISION_TYPE.MISC
 						},
 						new PbDecision
 						{
 							Name = "Beat the game early",
 							Description = "You can't do this, don't even try",
 							RequiredStat = STAT_ATTRIBUTE.DEFENSE,
-							RequiredStatValue = 100
+							RequiredStatValue = 100,
+							DecisionType = DECISION_TYPE.NOTHING
 						}
 					}
 				}

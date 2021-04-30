@@ -5,6 +5,10 @@
 
 <h3>EncounterRoomScreen</h3>
 
+<span>@doItText</span>
+<br />
+<br />
+
 <table class="table table-bordered table-sm">
     <tr>
         <td>
@@ -63,8 +67,23 @@
 </table>
 
 @code {
+    string doItText = "";
     private void DoIt(ProjectBlazor.Data.Game.Encounter.PbDecision decision)
     {
-        //
+        switch (decision.DecisionType)
+        {
+            case ProjectBlazor.Data.Game.General.PbTypes.DECISION_TYPE.NOTHING:
+                doItText = $"You did {decision.DecisionType.ToString()}!  Exciting stuff!";
+                break;
+            case ProjectBlazor.Data.Game.General.PbTypes.DECISION_TYPE.BATTLE:
+                doItText = $"You chose to {decision.DecisionType.ToString()}!  Exciting stuff!";
+                break;
+            case ProjectBlazor.Data.Game.General.PbTypes.DECISION_TYPE.MISC:
+                doItText = $"You chose to {decision.DecisionType.ToString()}!  What?";
+                break;
+            case ProjectBlazor.Data.Game.General.PbTypes.DECISION_TYPE.REST:
+                doItText = $"You chose to {decision.DecisionType.ToString()}!  Sleep well!";
+                break;
+        }
     }
 }
