@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProjectBlazor.Data;
 using ProjectBlazor.Data.DataSource;
 using ProjectBlazor.Data.Game.General;
 
@@ -25,6 +26,7 @@ namespace ProjectBlazor
 			services.AddServerSideBlazor();
 			services.AddSingleton<IPbDataSource, LocalPbDataSource>();
 			services.AddSingleton<PbGame>();
+			services.AddTransient<HelperService>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

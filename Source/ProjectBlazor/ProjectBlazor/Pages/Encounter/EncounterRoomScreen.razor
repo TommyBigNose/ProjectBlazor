@@ -2,6 +2,7 @@
 
 @using ProjectBlazor.Data.Game
 @inject ProjectBlazor.Data.Game.General.PbGame ProjectBlazorGame
+@inject Data.HelperService HelperService
 
 <h3>EncounterRoomScreen</h3>
 
@@ -77,6 +78,9 @@
                 break;
             case ProjectBlazor.Data.Game.General.PbTypes.DECISION_TYPE.BATTLE:
                 doItText = $"You chose to {decision.DecisionType.ToString()}!  Exciting stuff!";
+                //ProjectBlazorGame.battl
+                //UriHelper.NavigateTo("Battle/BattleScreen");
+                HelperService.ChangePage("Battle/BattleScreen");
                 break;
             case ProjectBlazor.Data.Game.General.PbTypes.DECISION_TYPE.MISC:
                 doItText = $"You chose to {decision.DecisionType.ToString()}!  What?";
